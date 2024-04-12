@@ -1,0 +1,20 @@
+[toolchain]
+
+[features]
+seeds = false
+skip-lint = false
+
+[programs.localnet]
+soundwork-bid = "GfK5B7Njeagu5GCeBGdVgpGzLcD8BpMDkcLeQjoXJBmY"
+soundwork-create = "8gg4YauYXorr3YKUgZvmti61wWHDmhRfYqQZZYUnrHuc"
+soundwork-list = "Bh1Wa72RL4GeCPG3hKzT8W7rmvdp2sf5cbNGUsbbEMoc"
+
+[registry]
+url = "https://api.apr.dev"
+
+[provider]
+cluster = "devnet"
+wallet = "~/.config/solana/id.json"
+
+[scripts]
+test = "yarn run ts-mocha -p ./tsconfig.json -t 1000000 tests/**/*.ts"

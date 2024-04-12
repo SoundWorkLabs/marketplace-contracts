@@ -1,0 +1,21 @@
+[package]
+name = "soundwork-create"
+version = "0.1.0"
+description = "Created with Anchor"
+edition = "2021"
+
+[lib]
+crate-type = ["cdylib", "lib"]
+name = "soundwork_create"
+
+[features]
+no-entrypoint = []
+no-idl = []
+no-log-ix-name = []
+cpi = ["no-entrypoint"]
+default = []
+
+[dependencies]
+anchor-lang = "0.29.0"
+mpl-core = "0.4.4"
+solana-security-txt = "1.1.1"
