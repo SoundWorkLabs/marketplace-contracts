@@ -19,11 +19,16 @@ export const findAssetManagerAddress = (): PublicKey => {
 
 /**
  * Derive the listing data account address
+ * @param asset Asset address
  * @returns {PublicKey} listingData Address.
  */
-export const findListingDataAddress = (): PublicKey => {
+export const findListingDataAddress = (asset: PublicKey): PublicKey => {
 	return PublicKey.findProgramAddressSync(
-		[Buffer.from(SEED_PREFIX), Buffer.from(SEED_LISTING_DATA)],
+		[
+			Buffer.from(SEED_PREFIX),
+			Buffer.from(SEED_LISTING_DATA),
+			asset.toBuffer(),
+		],
 		SOUNDWORK_LIST_ID
 	)[0];
 };

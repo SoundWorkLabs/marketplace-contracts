@@ -53,7 +53,7 @@ pub struct ListAsset<'info> {
         init,
         payer = payer,
         space = ListingData::LEN,
-        seeds = [SEED_PREFIX, SEED_LISTING_DATA],
+        seeds = [SEED_PREFIX, SEED_LISTING_DATA, asset.key().as_ref()],
         bump
     )]
     pub listing_data: Account<'info, ListingData>,

@@ -15,6 +15,9 @@ describe("LIST PROGRAM", () => {
 	const listProgram = new ListProgram();
 	const program = listProgram.getProgram();
 
+	// ! get rid of me below
+	let asset = new PublicKey("4tJLLXxZEj74n1m2CfQKMBjAZAg8t7bMpXnze3FPpxns");
+
 	// --------------------------------------------------------------------------ADMIN IXs
 
 	// it("Initializes escrow account!", async () => {
@@ -41,30 +44,8 @@ describe("LIST PROGRAM", () => {
 	// 		})
 	// 		.accounts({
 	// 			payer: signer.publicKey,
-	// 			asset: new PublicKey(
-	// 				"9yjYqYrEmFYkJeyby8Xaw5bvTVthqqUmSt8XcRuUH3uc"
-	// 			),
-	// 			listingData: findListingDataAddress(),
-	// 			assetManager: findAssetManagerAddress(),
-	// 			coreProgram: CORE_PROGRAM_ID,
-	// 			systemProgram: SystemProgram.programId,
-	// 		})
-	// 		.rpc();
-
-	// 	console.log(
-	// 		`tx: https://explorer.solana.com/tx/${txHash}?cluster=devnet\n`
-	// 	);
-	// });
-
-	// it("UnLists an MPL core asset!", async () => {
-	// 	const txHash = await program.methods
-	// 		.unlistAsset()
-	// 		.accounts({
-	// 			payer: signer.publicKey,
-	// 			asset: new PublicKey(
-	// 				"9yjYqYrEmFYkJeyby8Xaw5bvTVthqqUmSt8XcRuUH3uc"
-	// 			),
-	// 			listingData: findListingDataAddress(),
+	// 			asset,
+	// 			listingData: findListingDataAddress(asset),
 	// 			assetManager: findAssetManagerAddress(),
 	// 			coreProgram: CORE_PROGRAM_ID,
 	// 			systemProgram: SystemProgram.programId,
@@ -75,4 +56,22 @@ describe("LIST PROGRAM", () => {
 	// 		`tx: https://explorer.solana.com/tx/${txHash}?cluster=devnet\n`
 	// 	);
 	// });
+
+	it("UnLists an MPL core asset!", async () => {
+		const txHash = await program.methods
+			.unlistAsset()
+			.accounts({
+				payer: signer.publicKey,
+				asset,
+				listingData: findListingDataAddress(asset),
+				assetManager: findAssetManagerAddress(),
+				coreProgram: CORE_PROGRAM_ID,
+				systemProgram: SystemProgram.programId,
+			})
+			.rpc({ skipPreflight: true });
+
+		console.log(
+			`tx: https://explorer.solana.com/tx/${txHash}?cluster=devnet\n`
+		);
+	});
 });

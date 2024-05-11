@@ -1,11 +1,7 @@
 use anchor_lang::prelude::*;
 use mpl_core::instructions::TransferV1CpiBuilder;
 
-use crate::{
-    constants::{SEED_LISTING_DATA, SEED_PREFIX},
-    instruction::UnlistAsset,
-    AssetManager, ListingData, SEED_ASSET_MANAGER,
-};
+use crate::{constants::SEED_PREFIX, AssetManager, ListingData, SEED_ASSET_MANAGER};
 
 // todo: remove and use SPL typed account
 #[derive(Clone)]
@@ -81,7 +77,7 @@ impl UnListAsset<'_> {
             .asset(&ctx.accounts.asset)
             .payer(&ctx.accounts.payer)
             .authority(Some(&asset_manager.to_account_info()))
-            .new_owner(&asset_manager.to_account_info())
+            .new_owner(&ctx.accounts.payer.to_account_info())
             .system_program(Some(&ctx.accounts.system_program))
             .invoke_signed(signer_seeds)?;
 
