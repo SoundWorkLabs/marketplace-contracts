@@ -39,8 +39,7 @@ pub struct UnListAsset<'info> {
     #[account(mut)]
     pub asset: AccountInfo<'info>,
 
-    /// CHECK: checked by us
-    #[account(mut)]
+    #[account(mut, close = payer)]
     pub listing_data: Account<'info, ListingData>,
 
     pub asset_manager: Account<'info, AssetManager>,
@@ -62,8 +61,6 @@ impl UnListAsset<'_> {
             &ctx.program_id,
         )
         .unwrap();
-
-        msg!("asset manager address {:?}", asset_manager);
 
         assert_eq!(asset_manager, ctx.accounts.asset_manager.key());
 

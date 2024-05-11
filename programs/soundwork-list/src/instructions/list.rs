@@ -3,7 +3,7 @@ use mpl_core::instructions::TransferV1CpiBuilder;
 
 use crate::{
     constants::{SEED_LISTING_DATA, SEED_PREFIX},
-    AssetManager, ListingData,
+    AssetManager, ListingData, PaymentOption,
 };
 
 // todo: remove and use SPL typed account
@@ -20,6 +20,9 @@ impl anchor_lang::Id for Core {
 pub struct ListTokenParams {
     ///  listing amount/price in lamports
     pub amount: u64,
+
+    /// which method can be used to purchase the listed asset
+    pub payment_option: PaymentOption,
 }
 
 /// LIST an MPL core asset on soundwork
@@ -79,6 +82,7 @@ impl ListAsset<'_> {
             params.amount,
             ctx.accounts.payer.key(),
             ctx.accounts.asset.key(),
+            params.payment_option,
         );
 
         // transfer to assetManager

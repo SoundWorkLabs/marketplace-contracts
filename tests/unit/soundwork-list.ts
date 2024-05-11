@@ -35,7 +35,10 @@ describe("LIST PROGRAM", () => {
 
 	// it("Lists an MPL core asset!", async () => {
 	// 	const txHash = await program.methods
-	// 		.listAsset({ amount: new BN(1_0000_000) })
+	// 		.listAsset({
+	// 			amount: new BN(1_0000_000),
+	// 			paymentOption: { native: {} },
+	// 		})
 	// 		.accounts({
 	// 			payer: signer.publicKey,
 	// 			asset: new PublicKey(
