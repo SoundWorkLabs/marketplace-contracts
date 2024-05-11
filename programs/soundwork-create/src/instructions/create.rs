@@ -46,7 +46,6 @@ impl CreateAsset<'_> {
     /// *  name - the title of the asset being minted
     /// *  uri – off-chain URI of the metadata
     ///
-    /// Treasury is given via instruction accounts.
     #[access_control(ctx.accounts.validate())]
     pub fn create_asset(ctx: Context<CreateAsset>, name: String, uri: String) -> Result<()> {
         CreateV1CpiBuilder::new(&ctx.accounts.core_program)

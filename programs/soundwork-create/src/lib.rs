@@ -6,11 +6,10 @@ pub mod state;
 use anchor_lang::prelude::*;
 use solana_security_txt::security_txt;
 
-pub use constants::*;
 pub use instructions::*;
 pub use state::*;
 
-declare_id!("8gg4YauYXorr3YKUgZvmti61wWHDmhRfYqQZZYUnrHuc");
+declare_id!("DEmW5Gz7c4PzaMXayyYjWkkDfiXeEQoLysSdgCuepw5b");
 
 #[cfg(not(feature = "no-entrypoint"))]
 security_txt! {
@@ -22,6 +21,9 @@ security_txt! {
     source_code: "https://github.com/SoundWorkLabs/marketplace-contracts"
 }
 
+/// SOUNDWORK CREATE
+///
+/// admin IXs to interact with the soundwork programs
 #[program]
 pub mod soundwork_create {
     use super::*;

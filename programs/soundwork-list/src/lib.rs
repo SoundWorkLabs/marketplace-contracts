@@ -9,13 +9,40 @@ pub use constants::*;
 pub use instructions::*;
 pub use state::*;
 
-declare_id!("Bh1Wa72RL4GeCPG3hKzT8W7rmvdp2sf5cbNGUsbbEMoc");
+declare_id!("Cdn2CtPiYR9Lar4JnzhQbY3Gy4s6xYVjQLy3NBvZAN6k");
 
 #[program]
 pub mod soundwork_list {
+
     use super::*;
 
-    pub fn initialize(ctx: Context<Initialize>) -> Result<()> {
-        initialize::handler(ctx)
+    /// Initialize asset manager escrow account.
+    ///
+    /// Note: Only admin address can call this function
+    ///
+    pub fn init_escrow_account(ctx: Context<InitEscrow>) -> Result<()> {
+        InitEscrow::init_escrow(ctx)
+    }
+
+    /// List an MPL Core asset on Soundwork
+    ///
+    /// Expect
+    /// 1. amount - listing amount/price in lamports
+    pub fn list_asset(ctx: Context<ListAsset>, params: ListTokenParams) -> Result<()> {
+        ListAsset::list_asset(ctx, params)
+    }
+
+    /// Remove MPL Core asset listed on our marketplace
+    ///
+    pub fn update_listing_amount(
+        ctx: Context<UpdateListing>,
+        params: UpdateListingParams,
+    ) -> Result<()> {
+        UpdateListing::update_listing(ctx, params)
+    }
+    /// Remove MPL Core asset listed on our marketplace
+    ///
+    pub fn unlist_asset(ctx: Context<UnListAsset>) -> Result<()> {
+        UnListAsset::unlist(ctx)
     }
 }
