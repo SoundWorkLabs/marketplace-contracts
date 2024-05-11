@@ -1,24 +1,38 @@
 import { AnchorProvider, Provider } from "@coral-xyz/anchor";
-import { PublicKey } from "@solana/web3.js";
+import { Connection, PublicKey } from "@solana/web3.js";
+import dotenv from "dotenv";
+
+dotenv.config();
+
+const connection = new Connection(
+	`https://devnet.helius-rpc.com/?api-key=${process.env.HELIUS_API_KEY}`
+);
 
 // default provider provided by Anchor.toml
 export const defaultProvider: Provider = new AnchorProvider(
-	AnchorProvider.env().connection,
+	connection,
 	AnchorProvider.env().wallet,
 	AnchorProvider.defaultOptions()
 );
 
-export const SOUNDWORK_BID = new PublicKey(
-	"GfK5B7Njeagu5GCeBGdVgpGzLcD8BpMDkcLeQjoXJBmY"
+export const SOUNDWORK_BID_ID = new PublicKey(
+	"7Kehs8uKmqUq62s9aXTtU348HagoeR8RLZiUY5XMsct3"
 );
-export const SOUNDWORK_LIST = new PublicKey(
-	"Bh1Wa72RL4GeCPG3hKzT8W7rmvdp2sf5cbNGUsbbEMoc"
+export const SOUNDWORK_CREATE_ID = new PublicKey(
+	"DEmW5Gz7c4PzaMXayyYjWkkDfiXeEQoLysSdgCuepw5b"
 );
-export const SOUNDWORK_CREATE = new PublicKey(
-	"8gg4YauYXorr3YKUgZvmti61wWHDmhRfYqQZZYUnrHuc"
+export const SOUNDWORK_LIST_ID = new PublicKey(
+	"Cdn2CtPiYR9Lar4JnzhQbY3Gy4s6xYVjQLy3NBvZAN6k"
 );
 
 // external programs
 export const CORE_PROGRAM_ID = new PublicKey(
 	"CoREENxT6tW1HoK8ypY1SxRMZTcVPm7R94rH4PZNhX7d"
 );
+
+// ------------------------------------------- seeds
+export const SEED_PREFIX = "Kessoku";
+
+export const ASSET_MANAGER_PREFIX = "Seika";
+
+export const SEED_LISTING_DATA = "Hitori";

@@ -9,7 +9,7 @@ pub use constants::*;
 pub use instructions::*;
 pub use state::*;
 
-declare_id!("GfK5B7Njeagu5GCeBGdVgpGzLcD8BpMDkcLeQjoXJBmY");
+declare_id!("7Kehs8uKmqUq62s9aXTtU348HagoeR8RLZiUY5XMsct3");
 
 #[program]
 pub mod soundwork_bid {

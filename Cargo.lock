@@ -15,9 +15,9 @@ dependencies = [
 
 [[package]]
 name = "ahash"
-version = "0.8.11"
+version = "0.8.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "e89da841a80418a9b391ebaea17f5c112ffaaa96f621d2c285b5174da76b9011"
+checksum = "cd7d5a2cecb58716e47d67d5703a249964b14c7be1ec3cad3affc295b2d1c35d"
 dependencies = [
  "cfg-if",
  "getrandom 0.2.14",
@@ -762,7 +762,7 @@ version = "0.13.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "43a3c133739dddd0d2990f9a4bdf8eb4b21ef50e4851ca85ab661199821d510e"
 dependencies = [
- "ahash 0.8.11",
+ "ahash 0.8.5",
 ]
 
 [[package]]
@@ -1336,11 +1336,11 @@ checksum = "3c5e1a9a646d36c3599cd173a41282daf47c44583ad367b8e6837255952e5c67"
 
 [[package]]
 name = "solana-frozen-abi"
-version = "1.17.14"
+version = "1.17.31"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "8e2c5e5dde22cac045d29675b3fefa84817e1f63b0b911d094c599e80c0c07d9"
+checksum = "96734b05823c8b515f8e3cc02641a27aee2c9760b1a43c74cb20f2a1ab0ab76c"
 dependencies = [
- "ahash 0.8.11",
+ "ahash 0.8.5",
  "blake3",
  "block-buffer 0.10.4",
  "bs58 0.4.0",
@@ -1366,9 +1366,9 @@ dependencies = [
 
 [[package]]
 name = "solana-frozen-abi-macro"
-version = "1.17.14"
+version = "1.17.31"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "296e4cf0e2479e4c21afe4d17e32526f71f1bcd93b1c7c660900bc3e4233447a"
+checksum = "9a0f1291a464fd046135d019d57a81be165ee3d23aa7df880b47dac683a0582a"
 dependencies = [
  "proc-macro2",
  "quote",
@@ -1378,9 +1378,9 @@ dependencies = [
 
 [[package]]
 name = "solana-program"
-version = "1.17.14"
+version = "1.17.31"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "8e3a3b9623f09e2c480b4e129c92d7a036f8614fd0fc7519791bd44e64061ce8"
+checksum = "6412447793f8a3ef7526655906728325093b472e481791ac5c584e8d272166dc"
 dependencies = [
  "ark-bn254",
  "ark-ec",
@@ -1432,9 +1432,9 @@ dependencies = [
 
 [[package]]
 name = "solana-sdk-macro"
-version = "1.17.14"
+version = "1.17.31"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "60f58786e949f43b8c9b826fdfa5ad8586634b077ab04f989fb8e30535786712"
+checksum = "bc5cc46bbda0a5472d8d0a4c846b22941436ac45c31456d3e885a387a5f264f7"
 dependencies = [
  "bs58 0.4.0",
  "proc-macro2",
@@ -1456,6 +1456,7 @@ dependencies = [
  "anchor-lang",
  "mpl-core",
  "solana-security-txt",
+ "soundwork-create",
 ]
 
 [[package]]
@@ -1464,6 +1465,7 @@ version = "0.1.0"
 dependencies = [
  "anchor-lang",
  "mpl-core",
+ "solana-program",
  "solana-security-txt",
 ]
 
@@ -1473,6 +1475,7 @@ version = "0.1.0"
 dependencies = [
  "anchor-lang",
  "mpl-core",
+ "solana-program",
  "solana-security-txt",
 ]
 
