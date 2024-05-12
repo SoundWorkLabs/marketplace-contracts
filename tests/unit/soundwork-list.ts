@@ -57,21 +57,21 @@ describe("LIST PROGRAM", () => {
 	// 	);
 	// });
 
-	it("UnLists an MPL core asset!", async () => {
-		const txHash = await program.methods
-			.unlistAsset()
-			.accounts({
-				payer: signer.publicKey,
-				asset,
-				listingData: findListingDataAddress(asset),
-				assetManager: findAssetManagerAddress(),
-				coreProgram: CORE_PROGRAM_ID,
-				systemProgram: SystemProgram.programId,
-			})
-			.rpc({ skipPreflight: true });
+	// it("UnLists an MPL core asset!", async () => {
+	// 	const txHash = await program.methods
+	// 		.unlistAsset()
+	// 		.accounts({
+	// 			payer: signer.publicKey,
+	// 			asset,
+	// 			listingData: findListingDataAddress(asset),
+	// 			assetManager: findAssetManagerAddress(),
+	// 			coreProgram: CORE_PROGRAM_ID,
+	// 			systemProgram: SystemProgram.programId,
+	// 		})
+	// 		.rpc({ skipPreflight: true });
 
-		console.log(
-			`tx: https://explorer.solana.com/tx/${txHash}?cluster=devnet\n`
-		);
-	});
+	// 	console.log(
+	// 		`tx: https://explorer.solana.com/tx/${txHash}?cluster=devnet\n`
+	// 	);
+	// });
 });

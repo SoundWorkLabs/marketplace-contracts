@@ -1,11 +1,13 @@
 pub mod constants;
 pub mod error;
+pub mod helpers;
 pub mod instructions;
 pub mod state;
 
 use anchor_lang::prelude::*;
 
 pub use constants::*;
+pub use helpers::*;
 pub use instructions::*;
 pub use state::*;
 
@@ -22,6 +24,17 @@ pub mod soundwork_list {
     ///
     pub fn init_escrow_account(ctx: Context<InitEscrow>) -> Result<()> {
         InitEscrow::init_escrow(ctx)
+    }
+
+    /// Initialize marketplace config account.
+    ///
+    /// Note: Only admin address can call this function
+    ///
+    pub fn init_marketplace_config_account(
+        ctx: Context<InitMarketplaceConfig>,
+        params: InitMarketPlaceConfigParams,
+    ) -> Result<()> {
+        InitMarketplaceConfig::init_marketplace_config(ctx, params)
     }
 
     /// List an MPL Core asset on Soundwork

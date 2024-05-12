@@ -7,6 +7,9 @@ pub const SEED_PREFIX: &[u8] = b"Kessoku";
 pub const SEED_ASSET_MANAGER: &[u8] = b"Seika";
 
 #[constant]
+pub const SEED_MARKETPLACE_CONFIG: &[u8] = b"Ijichi";
+
+#[constant]
 pub const SEED_LISTING_DATA: &[u8] = b"Hitori";
 
 #[constant]
