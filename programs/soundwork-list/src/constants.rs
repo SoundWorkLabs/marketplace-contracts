@@ -13,4 +13,7 @@ pub const SEED_MARKETPLACE_CONFIG: &[u8] = b"Ijichi";
 pub const SEED_LISTING_DATA: &[u8] = b"Hitori";
 
 #[constant]
+pub const SEED_WALLET: &[u8] = b"Yamada";
+
+#[constant]
 pub const ADMIN_ADDRESS: Pubkey = pubkey!("4kg8oh3jdNtn7j2wcS7TrUua31AgbLzDVkBZgTAe44aF");

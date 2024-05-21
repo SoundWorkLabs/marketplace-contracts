@@ -2,19 +2,11 @@ use anchor_lang::prelude::*;
 use mpl_core::instructions::TransferV1CpiBuilder;
 
 use crate::{
+    helpers::Core,
     constants::{SEED_LISTING_DATA, SEED_PREFIX},
     AssetManager, ListingData, PaymentOption,
 };
 
-// todo: remove and use SPL typed account
-#[derive(Clone)]
-pub struct Core;
-
-impl anchor_lang::Id for Core {
-    fn id() -> Pubkey {
-        mpl_core::ID
-    }
-}
 
 #[derive(AnchorSerialize, AnchorDeserialize)]
 pub struct ListTokenParams {

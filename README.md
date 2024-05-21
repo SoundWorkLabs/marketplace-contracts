@@ -37,3 +37,11 @@ anchor build
 cargo clippy --all-targets -- -D warnings
 anchor test
 ```
+
+### Patches
+
+Should you encounter `failed to select a version for the requirement toml_edit = "^0.21.0"`
+
+```bash
+cargo update -p toml_edit@0.21.1 --precise 0.21.0
+```

@@ -1,16 +1,16 @@
 use anchor_lang::prelude::*;
 
-use crate::{AssetManager, constants::{SEED_ASSET_MANAGER, SEED_PREFIX, ADMIN_ADDRESS}};
+use crate::{AssetManager, constants::{SEED_ASSET_MANAGER, SEED_PREFIX, ADMIN_ADDRESS}, helpers::Core};
 
-// todo: remove and use SPL typed account
-#[derive(Clone)]
-pub struct Core;
+// // todo: remove and use SPL typed account
+// #[derive(Clone)]
+// pub struct Core;
 
-impl anchor_lang::Id for Core {
-    fn id() -> Pubkey {
-        mpl_core::ID
-    }
-}
+// impl anchor_lang::Id for Core {
+//     fn id() -> Pubkey {
+//         mpl_core::ID
+//     }
+// }
 
 /// Initialize AssetManager escrow account
 ///

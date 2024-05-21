@@ -2,21 +2,11 @@ use anchor_lang::prelude::*;
 use mpl_core::instructions::TransferV1CpiBuilder;
 
 use crate::{
-    calculate_total_buy_fee,
     constants::{SEED_ASSET_MANAGER, SEED_LISTING_DATA, SEED_PREFIX},
     error::ListErrorCode,
+    helpers::{calculate_total_buy_fee, Core},
     AssetManager, ListingData, MarketPlaceConfig, PaymentOption, Wallet,
 };
-
-// todo: remove and use SPL typed account
-#[derive(Clone)]
-pub struct Core;
-
-impl anchor_lang::Id for Core {
-    fn id() -> Pubkey {
-        mpl_core::ID
-    }
-}
 
 #[derive(AnchorSerialize, AnchorDeserialize)]
 pub struct BuyAssetParams {
