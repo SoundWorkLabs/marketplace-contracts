@@ -34,7 +34,7 @@ describe("LIST PROGRAM", () => {
 	const program = listProgram.getProgram();
 
 	// ! get rid of me below
-	let asset = new PublicKey("Bq23jFQWGxzAUcCpRCg9U5LHc6iwXgJxiDPtdUXdXJwA");
+	let asset = new PublicKey("H4gutS7fRDgb4c4sDhULvQ23PaN81d5qgQpkaapC7N8t");
 
 	// --------------------------------------------------------------------------ADMIN IXs
 
@@ -242,7 +242,7 @@ describe("LIST PROGRAM", () => {
 	// 	);
 	// });
 
-	// it("Buys a listed NFT using Tokens!", async () => {
+	// it("Buys a listed NFT using Tokens using Escrow Wallet!", async () => {
 	// 	const txHash = await program.methods
 	// 		.buyAsset(null) // ! fails as expected
 	// 		// .buyAsset({ bidAmount: new BN(1_000_000) }) // ! works, but this is for seller when accepting bids
@@ -260,6 +260,46 @@ describe("LIST PROGRAM", () => {
 	// 				findWalletAddress(buyer.publicKey),
 	// 				true
 	// 			),
+	// 			buyerTokenAccount: getAssociatedTokenAddressSync(
+	// 				PAYMENT_MINT,
+	// 				buyer.publicKey
+	// 			),
+	// 			sellerTokenAccount: getAssociatedTokenAddressSync(
+	// 				PAYMENT_MINT,
+	// 				seller.publicKey
+	// 			),
+	// 			treasuryTokenAccount: getAssociatedTokenAddressSync(
+	// 				PAYMENT_MINT,
+	// 				signer.publicKey
+	// 			), // ! update to correct address
+	// 			treasury: signer.publicKey, // ! update to correct address
+	// 			listingData: findListingDataAddress(asset),
+	// 			assetManager: findAssetManagerAddress(),
+	// 			marketplaceConfig: findMarketplaceConfigAddress(),
+	// 			coreProgram: CORE_PROGRAM_ID,
+	// 			tokenProgram: TOKEN_PROGRAM_ID,
+	// 			systemProgram: SystemProgram.programId,
+	// 		})
+	// 		.signers([buyer])
+	// 		.rpc({ skipPreflight: true });
+
+	// 	console.log(
+	// 		`tx: https://explorer.solana.com/tx/${txHash}?cluster=devnet\n`
+	// 	);
+	// });
+
+	// it("Buys a listed NFT using Tokens!", async () => {
+	// 	const txHash = await program.methods
+	// 		.buyAsset(null) // ! fails as expected
+	// 		.accounts({
+	// 			payer: buyer.publicKey,
+	// 			buyer: buyer.publicKey,
+	// 			seller: seller.publicKey,
+	// 			walletAsBuyer: null,
+
+	// 			asset,
+	// 			paymentMint: PAYMENT_MINT,
+	// 			walletTokenAccount: null,
 	// 			buyerTokenAccount: getAssociatedTokenAddressSync(
 	// 				PAYMENT_MINT,
 	// 				buyer.publicKey
