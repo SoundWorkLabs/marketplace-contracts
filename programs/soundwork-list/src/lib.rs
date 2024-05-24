@@ -85,9 +85,16 @@ pub mod soundwork_list {
     ) -> Result<()> {
         UpdateListing::update_listing(ctx, params)
     }
+
     /// Remove MPL Core asset listed on our marketplace
     ///
     pub fn unlist_asset(ctx: Context<UnListAsset>) -> Result<()> {
         UnListAsset::unlist(ctx)
+    }
+
+    /// Buy MPL Core asset listed on our marketplace
+    ///
+    pub fn buy_asset(ctx: Context<BuyAsset>, params: Option<BuyAssetParams>) -> Result<()> {
+        BuyAsset::buy_asset(ctx, params)
     }
 }

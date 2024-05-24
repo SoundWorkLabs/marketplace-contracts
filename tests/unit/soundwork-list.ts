@@ -26,12 +26,15 @@ describe("LIST PROGRAM", () => {
 	// get the signer keypair
 	let signer = loadKeypair(KeyPairFile.main);
 
+	let seller = loadKeypair(KeyPairFile.main);
+	let buyer = loadKeypair(KeyPairFile.secondary);
+
 	// instantiate LIST Program, using default provider
 	const listProgram = new ListProgram();
 	const program = listProgram.getProgram();
 
 	// ! get rid of me below
-	let asset = new PublicKey("4tJLLXxZEj74n1m2CfQKMBjAZAg8t7bMpXnze3FPpxns");
+	let asset = new PublicKey("Bq23jFQWGxzAUcCpRCg9U5LHc6iwXgJxiDPtdUXdXJwA");
 
 	// --------------------------------------------------------------------------ADMIN IXs
 
@@ -44,7 +47,7 @@ describe("LIST PROGRAM", () => {
 	// 			assetManager: findAssetManagerAddress(),
 	// 			coreProgram: CORE_PROGRAM_ID,
 	// 		})
-	// 		.rpc();
+	// 		.rpc({skipPreflight: true});
 
 	// 	console.log(
 	// 		`tx: https://explorer.solana.com/tx/${txHash}?cluster=devnet\n`
@@ -71,14 +74,15 @@ describe("LIST PROGRAM", () => {
 
 	// --------------------------------------------------------------------------USER IXs
 
-	// it("Initializes user wallet escrow!", async () => {
+	// it("Initializes buyer wallet escrow account!", async () => {
 	// 	const txHash = await program.methods
 	// 		.initUserEscrowWallet()
 	// 		.accounts({
-	// 			authority: signer.publicKey,
-	// 			wallet: findWalletAddress(signer.publicKey),
+	// 			authority: buyer.publicKey,
+	// 			wallet: findWalletAddress(buyer.publicKey),
 	// 			systemProgram: SystemProgram.programId,
 	// 		})
+	// 		.signers([buyer])
 	// 		.rpc();
 
 	// 	console.log(
@@ -86,14 +90,15 @@ describe("LIST PROGRAM", () => {
 	// 	);
 	// });
 
-	// it("Deposits SOL to user escrow wallet!", async () => {
+	// it("Deposits SOL to buyer escrow wallet!", async () => {
 	// 	const txHash = await program.methods
-	// 		.depositSol({ amount: new BN(1 * LAMPORTS_PER_SOL) })
+	// 		.depositSol({ amount: new BN(2 * LAMPORTS_PER_SOL) })
 	// 		.accounts({
-	// 			authority: signer.publicKey,
-	// 			wallet: findWalletAddress(signer.publicKey),
+	// 			authority: buyer.publicKey,
+	// 			wallet: findWalletAddress(buyer.publicKey),
 	// 			systemProgram: SystemProgram.programId,
 	// 		})
+	// 		.signers([buyer])
 	// 		.rpc();
 
 	// 	console.log(
@@ -101,15 +106,16 @@ describe("LIST PROGRAM", () => {
 	// 	);
 	// });
 
-	// it("Withdraws SOL to user escrow wallet!", async () => {
+	// it("Withdraws SOL from buyer escrow wallet!", async () => {
 	// 	const txHash = await program.methods
-	// 		.withdrawSol({ amount: new BN(0.5 * LAMPORTS_PER_SOL) })
+	// 		.withdrawSol({ amount: new BN(0.01 * LAMPORTS_PER_SOL) })
 	// 		.accounts({
-	// 			payer: signer.publicKey,
-	// 			authority: signer.publicKey,
-	// 			wallet: findWalletAddress(signer.publicKey),
+	// 			payer: buyer.publicKey,
+	// 			authority: buyer.publicKey,
+	// 			wallet: findWalletAddress(buyer.publicKey),
 	// 			systemProgram: SystemProgram.programId,
 	// 		})
+	// 		.signers([buyer])
 	// 		.rpc();
 
 	// 	console.log(
@@ -117,26 +123,27 @@ describe("LIST PROGRAM", () => {
 	// 	);
 	// });
 
-	// it("Deposits Tokens to user escrow wallet!", async () => {
+	// it("Deposits Tokens to buyer escrow wallet!", async () => {
 	// 	const txHash = await program.methods
-	// 		.depositToken({ amount: new BN(1_000_000) }) // with 6 decimals
+	// 		.depositToken({ amount: new BN(1_000_000) }) // with 6 decimals, this is 1 USDC dev coin
 	// 		.accounts({
-	// 			authority: signer.publicKey,
-	// 			wallet: findWalletAddress(signer.publicKey),
+	// 			authority: buyer.publicKey,
+	// 			wallet: findWalletAddress(buyer.publicKey),
 	// 			mint: PAYMENT_MINT,
 	// 			authorityTokenAccount: getAssociatedTokenAddressSync(
 	// 				PAYMENT_MINT,
-	// 				signer.publicKey
+	// 				buyer.publicKey
 	// 			),
 	// 			walletTokenAccount: getAssociatedTokenAddressSync(
 	// 				PAYMENT_MINT,
-	// 				findWalletAddress(signer.publicKey),
+	// 				findWalletAddress(buyer.publicKey),
 	// 				true
 	// 			),
 	// 			tokenProgram: TOKEN_PROGRAM_ID,
 	// 			associatedTokenProgram: ASSOCIATED_PROGRAM_ID,
 	// 			systemProgram: SystemProgram.programId,
 	// 		})
+	// 		.signers([buyer])
 	// 		.rpc({ skipPreflight: true });
 
 	// 	console.log(
@@ -144,27 +151,28 @@ describe("LIST PROGRAM", () => {
 	// 	);
 	// });
 
-	// it("Withdraws Tokens from user escrow wallet!", async () => {
+	// it("Withdraws Tokens from buyer escrow wallet", async () => {
 	// 	const txHash = await program.methods
 	// 		.withdrawToken({ amount: new BN(1) })
 	// 		.accounts({
-	// 			payer: signer.publicKey,
-	// 			authority: signer.publicKey,
-	// 			wallet: findWalletAddress(signer.publicKey),
+	// 			payer: buyer.publicKey,
+	// 			authority: buyer.publicKey,
+	// 			wallet: findWalletAddress(buyer.publicKey),
 	// 			mint: PAYMENT_MINT,
 	// 			authorityTokenAccount: getAssociatedTokenAddressSync(
 	// 				PAYMENT_MINT,
-	// 				signer.publicKey
+	// 				buyer.publicKey
 	// 			),
-	// 			walletTokenAccount: getAssociatedTokenAddressSync(
-	// 				PAYMENT_MINT,
-	// 				findWalletAddress(signer.publicKey),
-	// 				true
-	// 			),
+	// walletTokenAccount: getAssociatedTokenAddressSync(
+	// 	PAYMENT_MINT,
+	// 	findWalletAddress(buyer.publicKey),
+	// 	true
+	// ),
 	// 			tokenProgram: TOKEN_PROGRAM_ID,
 	// 			associatedTokenProgram: ASSOCIATED_PROGRAM_ID,
 	// 			systemProgram: SystemProgram.programId,
 	// 		})
+	// 		.signers([buyer])
 	// 		.rpc({ skipPreflight: true });
 
 	// 	console.log(
@@ -174,11 +182,32 @@ describe("LIST PROGRAM", () => {
 
 	// --------------------------------------------------------------------------LIST IXs
 
-	// it("Lists an MPL core asset!", async () => {
+	// // it("Lists an MPL core asset with native payment option!", async () => {
+	// // 	const txHash = await program.methods
+	// // 		.listAsset({
+	// // 			amount: new BN(1_0000_000),
+	// // 			paymentOption: { native: {} },
+	// // 		})
+	// // 		.accounts({
+	// // 			payer: signer.publicKey,
+	// // 			asset,
+	// // 			listingData: findListingDataAddress(asset),
+	// // 			assetManager: findAssetManagerAddress(),
+	// // 			coreProgram: CORE_PROGRAM_ID,
+	// // 			systemProgram: SystemProgram.programId,
+	// // 		})
+	// // 		.rpc({ skipPreflight: true });
+
+	// // 	console.log(
+	// // 		`tx: https://explorer.solana.com/tx/${txHash}?cluster=devnet\n`
+	// // 	);
+	// // });
+
+	// it("Lists an MPL core asset and uses mint as payment option!", async () => {
 	// 	const txHash = await program.methods
 	// 		.listAsset({
-	// 			amount: new BN(1_0000_000),
-	// 			paymentOption: { native: {} },
+	// 			amount: new BN(1_000_000), // 1 USDC dev
+	// 			paymentOption: { token: { mint: PAYMENT_MINT } },
 	// 		})
 	// 		.accounts({
 	// 			payer: signer.publicKey,
@@ -206,6 +235,52 @@ describe("LIST PROGRAM", () => {
 	// 			coreProgram: CORE_PROGRAM_ID,
 	// 			systemProgram: SystemProgram.programId,
 	// 		})
+	// 		.rpc({ skipPreflight: true });
+
+	// 	console.log(
+	// 		`tx: https://explorer.solana.com/tx/${txHash}?cluster=devnet\n`
+	// 	);
+	// });
+
+	// it("Buys a listed NFT using Tokens!", async () => {
+	// 	const txHash = await program.methods
+	// 		.buyAsset(null) // ! fails as expected
+	// 		// .buyAsset({ bidAmount: new BN(1_000_000) }) // ! works, but this is for seller when accepting bids
+	// 		.accounts({
+	// 			payer: buyer.publicKey,
+	// 			buyer: buyer.publicKey,
+	// 			seller: seller.publicKey,
+	// 			walletAsBuyer: findWalletAddress(buyer.publicKey),
+	// 			// walletAsBuyer: null,
+
+	// 			asset,
+	// 			paymentMint: PAYMENT_MINT,
+	// 			walletTokenAccount: getAssociatedTokenAddressSync(
+	// 				PAYMENT_MINT,
+	// 				findWalletAddress(buyer.publicKey),
+	// 				true
+	// 			),
+	// 			buyerTokenAccount: getAssociatedTokenAddressSync(
+	// 				PAYMENT_MINT,
+	// 				buyer.publicKey
+	// 			),
+	// 			sellerTokenAccount: getAssociatedTokenAddressSync(
+	// 				PAYMENT_MINT,
+	// 				seller.publicKey
+	// 			),
+	// 			treasuryTokenAccount: getAssociatedTokenAddressSync(
+	// 				PAYMENT_MINT,
+	// 				signer.publicKey
+	// 			), // ! update to correct address
+	// 			treasury: signer.publicKey, // ! update to correct address
+	// 			listingData: findListingDataAddress(asset),
+	// 			assetManager: findAssetManagerAddress(),
+	// 			marketplaceConfig: findMarketplaceConfigAddress(),
+	// 			coreProgram: CORE_PROGRAM_ID,
+	// 			tokenProgram: TOKEN_PROGRAM_ID,
+	// 			systemProgram: SystemProgram.programId,
+	// 		})
+	// 		.signers([buyer])
 	// 		.rpc({ skipPreflight: true });
 
 	// 	console.log(

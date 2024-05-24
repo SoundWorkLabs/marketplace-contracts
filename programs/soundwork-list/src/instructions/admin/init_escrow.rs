@@ -2,16 +2,6 @@ use anchor_lang::prelude::*;
 
 use crate::{AssetManager, constants::{SEED_ASSET_MANAGER, SEED_PREFIX, ADMIN_ADDRESS}, helpers::Core};
 
-// // todo: remove and use SPL typed account
-// #[derive(Clone)]
-// pub struct Core;
-
-// impl anchor_lang::Id for Core {
-//     fn id() -> Pubkey {
-//         mpl_core::ID
-//     }
-// }
-
 /// Initialize AssetManager escrow account
 ///
 /// Expects the following accounts:
@@ -21,7 +11,6 @@ use crate::{AssetManager, constants::{SEED_ASSET_MANAGER, SEED_PREFIX, ADMIN_ADD
 /// 4. `[]` `system program`
 
 #[derive(Accounts)]
-#[instruction(bump: u8)]
 pub struct InitEscrow<'info> {
     // todo: move this admin address check to the validate functions 
     // find out a way to do this using a slice or vector of verified addresses

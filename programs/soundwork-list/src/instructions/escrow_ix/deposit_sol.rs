@@ -48,8 +48,7 @@ impl DepositSol<'_> {
         };
         let cpi_program = ctx.accounts.system_program.to_account_info();
 
-        let cpi_context: CpiContext<'_, '_, '_, '_, Transfer<'_>> =
-            CpiContext::new(cpi_program, cpi_accounts);
+        let cpi_context = CpiContext::new(cpi_program, cpi_accounts);
 
         system_program::transfer(cpi_context, params.amount)?;
 

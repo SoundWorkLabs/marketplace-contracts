@@ -10,4 +10,8 @@ pub enum ListErrorCode {
     InvalidAuthority,
     #[msg("The value provided should not be zero.")]
     ZeroValueNotAllowed,
+    #[msg("The mint address provided does not match seller's provided mint address.")]
+    PaymentMintAddressMismatch,
+    #[msg("An account required for this operation is missing.")]
+    MissingAccount,
 }
