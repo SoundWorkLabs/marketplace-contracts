@@ -1,17 +1,7 @@
 use anchor_lang::prelude::*;
 use mpl_core::instructions::TransferV1CpiBuilder;
 
-use crate::{constants::SEED_PREFIX, AssetManager, ListingData, SEED_ASSET_MANAGER};
-
-// todo: remove and use SPL typed account
-#[derive(Clone)]
-pub struct Core;
-
-impl anchor_lang::Id for Core {
-    fn id() -> Pubkey {
-        mpl_core::ID
-    }
-}
+use crate::{constants::SEED_PREFIX, helpers::Core, AssetManager, ListingData, SEED_ASSET_MANAGER};
 
 /// LIST an MPL core asset on soundwork
 ///

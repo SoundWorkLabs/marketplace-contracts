@@ -1,16 +1,6 @@
 use anchor_lang::prelude::*;
 
-use crate::{AssetManager, ListingData};
-
-// todo: remove and use SPL typed account
-#[derive(Clone)]
-pub struct Core;
-
-impl anchor_lang::Id for Core {
-    fn id() -> Pubkey {
-        mpl_core::ID
-    }
-}
+use crate::{helpers::Core, AssetManager, ListingData};
 
 #[derive(AnchorSerialize, AnchorDeserialize)]
 pub struct UpdateListingParams {

@@ -15,14 +15,16 @@ export const defaultProvider: Provider = new AnchorProvider(
 	AnchorProvider.defaultOptions()
 );
 
+// ------------------------------------------- programs
+
 export const SOUNDWORK_BID_ID = new PublicKey(
-	"7Kehs8uKmqUq62s9aXTtU348HagoeR8RLZiUY5XMsct3"
+	"4mFDYND4AVREYEJXCPhjq1LnbjELHHebJqG3NZechA7X"
 );
 export const SOUNDWORK_CREATE_ID = new PublicKey(
-	"DEmW5Gz7c4PzaMXayyYjWkkDfiXeEQoLysSdgCuepw5b"
+	"4iraDthfMHkgrvWsLz4mfCyHJY4JKc31TTxGMZKrc6r8"
 );
 export const SOUNDWORK_LIST_ID = new PublicKey(
-	"Cdn2CtPiYR9Lar4JnzhQbY3Gy4s6xYVjQLy3NBvZAN6k"
+	"EA4ptgF3TYjDBGYJApAoZoyCbCYw6P5mGU5noCe1Z97"
 );
 
 // external programs
@@ -36,3 +38,12 @@ export const SEED_PREFIX = "Kessoku";
 export const ASSET_MANAGER_PREFIX = "Seika";
 
 export const SEED_LISTING_DATA = "Hitori";
+
+export const SEED_MARKETPLACE_CONFIG = "Ijichi";
+
+export const SEED_WALLET = "Yamada";
+
+// --------------------------------------------------- accounts
+export const PAYMENT_MINT = new PublicKey(
+	"Gh9ZwEmdLJ8DscKNTkTqPbNwLNNBjuSzaG9Vp2KGtKJr"
+); // USDC - dev

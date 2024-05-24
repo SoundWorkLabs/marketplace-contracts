@@ -2,7 +2,9 @@ import { PublicKey } from "@solana/web3.js";
 import {
 	ASSET_MANAGER_PREFIX,
 	SEED_LISTING_DATA,
+	SEED_MARKETPLACE_CONFIG,
 	SEED_PREFIX,
+	SEED_WALLET,
 	SOUNDWORK_LIST_ID,
 } from "./constants";
 
@@ -18,6 +20,17 @@ export const findAssetManagerAddress = (): PublicKey => {
 };
 
 /**
+ * Derive the marketplace config account
+ * @returns {PublicKey} listingData Address.
+ */
+export const findMarketplaceConfigAddress = (): PublicKey => {
+	return PublicKey.findProgramAddressSync(
+		[Buffer.from(SEED_PREFIX), Buffer.from(SEED_MARKETPLACE_CONFIG)],
+		SOUNDWORK_LIST_ID
+	)[0];
+};
+
+/**
  * Derive the listing data account address
  * @param asset Asset address
  * @returns {PublicKey} listingData Address.
@@ -28,6 +41,22 @@ export const findListingDataAddress = (asset: PublicKey): PublicKey => {
 			Buffer.from(SEED_PREFIX),
 			Buffer.from(SEED_LISTING_DATA),
 			asset.toBuffer(),
+		],
+		SOUNDWORK_LIST_ID
+	)[0];
+};
+
+/**
+ * Derive the user wallet escrow address
+ * @param authority user's address
+ * @returns {PublicKey} listingData Address.
+ */
+export const findWalletAddress = (authority: PublicKey): PublicKey => {
+	return PublicKey.findProgramAddressSync(
+		[
+			Buffer.from(SEED_PREFIX),
+			Buffer.from(SEED_WALLET),
+			authority.toBuffer(),
 		],
 		SOUNDWORK_LIST_ID
 	)[0];

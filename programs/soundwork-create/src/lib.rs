@@ -9,7 +9,7 @@ use solana_security_txt::security_txt;
 pub use instructions::*;
 pub use state::*;
 
-declare_id!("DEmW5Gz7c4PzaMXayyYjWkkDfiXeEQoLysSdgCuepw5b");
+declare_id!("4iraDthfMHkgrvWsLz4mfCyHJY4JKc31TTxGMZKrc6r8");
 
 #[cfg(not(feature = "no-entrypoint"))]
 security_txt! {

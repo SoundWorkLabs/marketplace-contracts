@@ -1,5 +1,6 @@
 [toolchain]
 anchor_version = "0.29.0"  
+# solana_version = "1.18.14"  # todo:(Jimii) Update when MPL core upgrades to this version
 solana_version = "1.17.28"  
 
 [features]
@@ -7,9 +8,9 @@ seeds = false
 skip-lint = false
 
 [programs.localnet]
-soundwork-bid = "7Kehs8uKmqUq62s9aXTtU348HagoeR8RLZiUY5XMsct3"
-soundwork-create = "DEmW5Gz7c4PzaMXayyYjWkkDfiXeEQoLysSdgCuepw5b"
-soundwork-list = "Cdn2CtPiYR9Lar4JnzhQbY3Gy4s6xYVjQLy3NBvZAN6k"
+soundwork-bid = "4mFDYND4AVREYEJXCPhjq1LnbjELHHebJqG3NZechA7X"
+soundwork-create = "4iraDthfMHkgrvWsLz4mfCyHJY4JKc31TTxGMZKrc6r8"
+soundwork-list = "EA4ptgF3TYjDBGYJApAoZoyCbCYw6P5mGU5noCe1Z97"
 
 [registry]
 url = "https://api.apr.dev"
