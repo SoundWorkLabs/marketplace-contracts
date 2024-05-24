@@ -25,22 +25,23 @@ pub struct BuyAssetParams {
 ///
 /// Expects the following accounts:
 /// 1. `[writeable, signer]` payer
-/// . `[writeable]` buyer
-/// . `[writeable]` seller
-/// . `[writeable, optional]` wallet as buyer
-/// . `[writeable]` asset
-/// . `[writeable, optional]` payment mint
-/// . `[writeable, optional]` wallet token account
-/// . `[writeable, optional]` buyer token account
-/// . `[writeable, optional]` seller token account
-/// . `[writeable, optional]` treasury token account
-/// . `[writeable]` treasury
-/// . `[writeable]` listing data account
-/// . `[]` asset manager
-/// . `[]` marketplace config
-/// . `[]` core program
-/// . `[]` token program
-/// . `[]` system program
+/// 2. `[writeable]` buyer
+/// 3. `[writeable]` seller
+/// 4. `[writeable, optional]` wallet as buyer
+/// 5. `[writeable]` asset
+/// 6. `[writeable, optional]` payment mint
+/// 7. `[writeable, optional]` wallet token account
+/// 8. `[writeable, optional]` buyer token account
+/// 9. `[writeable, optional]` seller token account
+/// 10. `[writeable, optional]` treasury token account
+/// 11. `[writeable]` treasury
+/// 12. `[writeable]` listing data account
+/// 13. `[]` asset manager
+/// 14. `[]` marketplace config
+/// 15. `[]` core program
+/// 16. `[]` token program
+/// 17. `[]` associated token program
+/// 18. `[]` system program
 ///
 /// Expects the following arguments
 /// 1. params: BuyAssetParams
