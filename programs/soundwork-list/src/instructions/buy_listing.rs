@@ -9,7 +9,7 @@ use anchor_spl::{
 use mpl_core::instructions::TransferV1CpiBuilder;
 
 use crate::{
-    constants::{SEED_ASSET_MANAGER, SEED_LISTING_DATA, SEED_PREFIX},
+    constants::{SEED_ASSET_MANAGER, SEED_PREFIX},
     error::ListErrorCode,
     helpers::{calculate_total_buy_fee, Core},
     AssetManager, ListingData, MarketPlaceConfig, PaymentOption, Wallet, SEED_WALLET,

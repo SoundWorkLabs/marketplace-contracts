@@ -18,7 +18,7 @@ use crate::{constants::SEED_PREFIX, helpers::Core, AssetManager, ListingData, SE
 ///
 #[derive(Accounts)]
 pub struct UnListAsset<'info> {
-    #[account(mut, address = listing_data.owner)]
+    #[account(mut, address = listing_data.authority)]
     pub payer: Signer<'info>,
 
     /// CHECK: checked by us

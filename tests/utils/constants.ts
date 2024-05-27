@@ -43,7 +43,12 @@ export const SEED_MARKETPLACE_CONFIG = "Ijichi";
 
 export const SEED_WALLET = "Yamada";
 
+export const SEED_BID_DATA = "Futari";
+
 // --------------------------------------------------- accounts
 export const PAYMENT_MINT = new PublicKey(
 	"Gh9ZwEmdLJ8DscKNTkTqPbNwLNNBjuSzaG9Vp2KGtKJr"
 ); // USDC - dev
+
+// ------------------------------------------------------- testing
+export let asset = new PublicKey("");

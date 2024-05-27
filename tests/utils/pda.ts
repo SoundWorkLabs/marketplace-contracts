@@ -1,10 +1,12 @@
 import { PublicKey } from "@solana/web3.js";
 import {
 	ASSET_MANAGER_PREFIX,
+	SEED_BID_DATA,
 	SEED_LISTING_DATA,
 	SEED_MARKETPLACE_CONFIG,
 	SEED_PREFIX,
 	SEED_WALLET,
+	SOUNDWORK_BID_ID,
 	SOUNDWORK_LIST_ID,
 } from "./constants";
 
@@ -59,5 +61,23 @@ export const findWalletAddress = (authority: PublicKey): PublicKey => {
 			authority.toBuffer(),
 		],
 		SOUNDWORK_LIST_ID
+	)[0];
+};
+
+/**
+ * Derive the bid data account address
+ *
+ * @param asset asset's address
+ *
+ * @returns {PublicKey} The bid data Address.
+ */
+export const findBidDataAddress = (asset: PublicKey): PublicKey => {
+	return PublicKey.findProgramAddressSync(
+		[
+			Buffer.from(SEED_PREFIX),
+			Buffer.from(SEED_BID_DATA),
+			asset.toBuffer(),
+		],
+		SOUNDWORK_BID_ID
 	)[0];
 };

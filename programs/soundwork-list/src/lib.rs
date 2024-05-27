@@ -71,9 +71,7 @@ pub mod soundwork_list {
 
     /// List an MPL Core asset on Soundwork
     ///
-    /// Expect
-    /// 1. amount - listing amount/price in lamports
-    pub fn list_asset(ctx: Context<ListAsset>, params: ListTokenParams) -> Result<()> {
+    pub fn list_asset(ctx: Context<ListAsset>, params: ListAssetParams) -> Result<()> {
         ListAsset::list_asset(ctx, params)
     }
 

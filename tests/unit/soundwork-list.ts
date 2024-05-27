@@ -12,7 +12,7 @@ import {
 	SystemProgram,
 } from "@solana/web3.js";
 import { BN } from "bn.js";
-import { CORE_PROGRAM_ID, PAYMENT_MINT } from "../utils/constants";
+import { asset, CORE_PROGRAM_ID, PAYMENT_MINT } from "../utils/constants";
 import { KeyPairFile, loadKeypair } from "../utils/helpers";
 import {
 	findAssetManagerAddress,
@@ -34,7 +34,7 @@ describe("LIST PROGRAM", () => {
 	const program = listProgram.getProgram();
 
 	// ! get rid of me below
-	let asset = new PublicKey("H4gutS7fRDgb4c4sDhULvQ23PaN81d5qgQpkaapC7N8t");
+	// let asset = new PublicKey("H4gutS7fRDgb4c4sDhULvQ23PaN81d5qgQpkaapC7N8t");
 
 	// --------------------------------------------------------------------------ADMIN IXs
 
@@ -75,19 +75,19 @@ describe("LIST PROGRAM", () => {
 	// --------------------------------------------------------------------------USER IXs
 
 	// it("Initializes buyer wallet escrow account!", async () => {
-	// 	const txHash = await program.methods
-	// 		.initUserEscrowWallet()
-	// 		.accounts({
-	// 			authority: buyer.publicKey,
-	// 			wallet: findWalletAddress(buyer.publicKey),
-	// 			systemProgram: SystemProgram.programId,
-	// 		})
-	// 		.signers([buyer])
-	// 		.rpc();
+		// const txHash = await program.methods
+		// 	.initUserEscrowWallet()
+			// .accounts({
+			// 	authority: buyer.publicKey,
+			// 	wallet: findWalletAddress(buyer.publicKey),
+			// 	systemProgram: SystemProgram.programId,
+			// })
+		// 	.signers([buyer])
+		// 	.rpc();
 
-	// 	console.log(
-	// 		`tx: https://explorer.solana.com/tx/${txHash}?cluster=devnet\n`
-	// 	);
+	// console.log(
+	// 	`tx: https://explorer.solana.com/tx/${txHash}?cluster=devnet\n`
+	// );
 	// });
 
 	// it("Deposits SOL to buyer escrow wallet!", async () => {
@@ -130,10 +130,10 @@ describe("LIST PROGRAM", () => {
 	// 			authority: buyer.publicKey,
 	// 			wallet: findWalletAddress(buyer.publicKey),
 	// 			mint: PAYMENT_MINT,
-	// 			authorityTokenAccount: getAssociatedTokenAddressSync(
-	// 				PAYMENT_MINT,
-	// 				buyer.publicKey
-	// 			),
+	// authorityTokenAccount: getAssociatedTokenAddressSync(
+	// 	PAYMENT_MINT,
+	// 	buyer.publicKey
+	// ),
 	// 			walletTokenAccount: getAssociatedTokenAddressSync(
 	// 				PAYMENT_MINT,
 	// 				findWalletAddress(buyer.publicKey),
@@ -203,7 +203,7 @@ describe("LIST PROGRAM", () => {
 	// // 	);
 	// // });
 
-	// it("Lists an MPL core asset and uses mint as payment option!", async () => {
+	// it("Lists an MPL core asset and uses tokens as payment option!", async () => {
 	// 	const txHash = await program.methods
 	// 		.listAsset({
 	// 			amount: new BN(1_000_000), // 1 USDC dev
