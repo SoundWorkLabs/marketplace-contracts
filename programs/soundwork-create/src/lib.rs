@@ -4,10 +4,11 @@ pub mod instructions;
 pub mod state;
 
 use anchor_lang::prelude::*;
+
+#[allow(unused_imports)]
 use solana_security_txt::security_txt;
 
 pub use instructions::*;
-pub use state::*;
 
 declare_id!("4iraDthfMHkgrvWsLz4mfCyHJY4JKc31TTxGMZKrc6r8");
 

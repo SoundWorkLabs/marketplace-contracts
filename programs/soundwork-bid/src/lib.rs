@@ -5,11 +5,24 @@ pub mod state;
 
 use anchor_lang::prelude::*;
 
+#[allow(unused_imports)]
+use solana_security_txt::security_txt;
+
 pub use constants::*;
 pub use instructions::*;
 pub use state::*;
 
 declare_id!("4mFDYND4AVREYEJXCPhjq1LnbjELHHebJqG3NZechA7X");
+
+#[cfg(not(feature = "no-entrypoint"))]
+security_txt! {
+    name: "Soundwork Bid Program",
+    project_url: "https://soundwork.io",
+    contacts: "email:info@soundwork.io, twitter:@soundworkio",
+    policy: "https://github.com/SoundWorkLabs/marketplace-contracts/blob/master/SECURITY.md",
+    preferred_languages: "en",
+    source_code: "https://github.com/SoundWorkLabs/marketplace-contracts"
+}
 
 #[program]
 pub mod soundwork_bid {

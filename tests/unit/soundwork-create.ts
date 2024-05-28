@@ -1,9 +1,6 @@
-import { AnchorProvider, setProvider } from "@coral-xyz/anchor";
-
 import { Keypair, SystemProgram } from "@solana/web3.js";
 import { CORE_PROGRAM_ID } from "../utils/constants";
 import { KeyPairFile, loadKeypair } from "../utils/helpers";
-import { findAssetManagerAddress } from "../utils/pda";
 import { CreateProgram } from "../utils/programs";
 
 describe("CREATE PROGRAM", () => {
@@ -13,22 +10,6 @@ describe("CREATE PROGRAM", () => {
 	// instantiate CREATE Program, using default provider
 	const createProgram = new CreateProgram();
 	const program = createProgram.getProgram();
-
-	// it("Initializes escrow account!", async () => {
-	// 	const txHash = await program.methods
-	// 		.initEscrow(findAssetManagerAddress()[1])
-	// 		.accounts({
-	// 			payer: signer.publicKey,
-	// 			systemProgram: SystemProgram.programId,
-	// 			assetManager: findAssetManagerAddress()[0],
-	// 			coreProgram: CORE_PROGRAM_ID,
-	// 		})
-	// 		.rpc();
-
-	// 	console.log(
-	// 		`tx: https://explorer.solana.com/address/${txHash}?cluster=devnet\n`
-	// 	);
-	// });
 
 	it("Is Mints a Core Asset!", async () => {
 		const asset = Keypair.generate();

@@ -123,8 +123,6 @@ impl AcceptBid<'_> {
                 let treasury_token_account = self.treasury_token_account.as_ref();
                 let seller_token_account = self.seller_token_account.as_ref();
 
-                let bidder_escrow_wallet = self.bidder_escrow_wallet.as_ref();
-
                 if bidder_token_account.is_none()
                     || payment_mint.is_none()
                     || wallet_token_account.is_none()
