@@ -1,12 +1,15 @@
 import { AnchorProvider, Provider } from "@coral-xyz/anchor";
-import { Connection, PublicKey } from "@solana/web3.js";
+import { clusterApiUrl, Connection, PublicKey } from "@solana/web3.js";
 import dotenv from "dotenv";
 
 dotenv.config();
 
-const connection = new Connection(
-	`https://devnet.helius-rpc.com/?api-key=${process.env.HELIUS_API_KEY}`
-);
+// const connection = new Connection(
+// 	`https://devnet.helius-rpc.com/?api-key=${process.env.HELIUS_API_KEY}`
+// );
+
+// eclipse endpoint
+const connection = new Connection(clusterApiUrl("devnet"));
 
 // default provider provided by Anchor.toml
 export const defaultProvider: Provider = new AnchorProvider(
@@ -43,7 +46,14 @@ export const SEED_MARKETPLACE_CONFIG = "Ijichi";
 
 export const SEED_WALLET = "Yamada";
 
+export const SEED_BID_DATA = "Futari";
+
 // --------------------------------------------------- accounts
 export const PAYMENT_MINT = new PublicKey(
 	"Gh9ZwEmdLJ8DscKNTkTqPbNwLNNBjuSzaG9Vp2KGtKJr"
 ); // USDC - dev
+
+// ------------------------------------------------------- testing
+export let asset = new PublicKey(
+	"782PBkY3mksE8Ra24ywnFuHhxd8Mke887fy27zTN7zKx"
+);

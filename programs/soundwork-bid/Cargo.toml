@@ -17,6 +17,8 @@ default = []
 
 [dependencies]
 anchor-lang = "0.29.0"
+anchor-spl = "0.29.0"
 mpl-core = "0.4.4"
 solana-security-txt = "1.1.1"
 soundwork-create = { path = "../soundwork-create", features = ["cpi"] }
+soundwork-list = { path = "../soundwork-list", features = ["cpi"] }

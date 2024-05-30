@@ -21,13 +21,10 @@ pub struct ListingData {
     pub amount: u64,
 
     /// asset owner
-    pub owner: Pubkey,
+    pub authority: Pubkey,
 
     /// asset address
     pub asset_address: Pubkey,
-
-    /// unix timestamp listing is being made
-    pub created_ts: i64,
 
     /// type of way user wants to get paid when listing is bought / bid made for asset
     pub payment_option: PaymentOption,
@@ -37,23 +34,26 @@ pub struct ListingData {
 }
 
 impl ListingData {
-    pub const LEN: usize = 8 + (1 + 8 + 32 + 32 + 8 + 33 + 128);
+    pub const LEN: usize = 8 // anchor discriminator 
+    + 1 // bump 
+    + 8 // amount 
+    + 32 // authority address
+    + 32  // asset address
+    + 33 // payment option 
+    + 128; // reserved
 
     /// instantiate the listing data account with provided args
     pub fn new(
         bump: u8,
         amount: u64,
-        owner: Pubkey,
+        authority: Pubkey,
         asset_address: Pubkey,
         payment_option: PaymentOption,
     ) -> Self {
-        let created_ts = Clock::get().unwrap().unix_timestamp;
-
         Self {
             bump,
             amount,
-            owner,
-            created_ts,
+            authority,
             asset_address,
             payment_option,
             _reserved: [0; 128],

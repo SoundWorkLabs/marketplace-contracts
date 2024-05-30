@@ -2010,9 +2010,11 @@ name = "soundwork-bid"
 version = "0.1.0"
 dependencies = [
  "anchor-lang",
+ "anchor-spl",
  "mpl-core",
  "solana-security-txt",
  "soundwork-create",
+ "soundwork-list",
 ]
 
 [[package]]

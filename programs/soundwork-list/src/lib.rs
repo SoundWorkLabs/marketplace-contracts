@@ -6,11 +6,24 @@ pub mod state;
 
 use anchor_lang::prelude::*;
 
+#[allow(unused_imports)]
+use solana_security_txt::security_txt;
+
 pub use constants::*;
 pub use instructions::*;
 pub use state::*;
 
 declare_id!("EA4ptgF3TYjDBGYJApAoZoyCbCYw6P5mGU5noCe1Z97");
+
+#[cfg(not(feature = "no-entrypoint"))]
+security_txt! {
+    name: "Soundwork List Program",
+    project_url: "https://soundwork.io",
+    contacts: "email:info@soundwork.io, twitter:@soundworkio",
+    policy: "https://github.com/SoundWorkLabs/marketplace-contracts/blob/master/SECURITY.md",
+    preferred_languages: "en",
+    source_code: "https://github.com/SoundWorkLabs/marketplace-contracts"
+}
 
 #[program]
 pub mod soundwork_list {
@@ -71,9 +84,7 @@ pub mod soundwork_list {
 
     /// List an MPL Core asset on Soundwork
     ///
-    /// Expect
-    /// 1. amount - listing amount/price in lamports
-    pub fn list_asset(ctx: Context<ListAsset>, params: ListTokenParams) -> Result<()> {
+    pub fn list_asset(ctx: Context<ListAsset>, params: ListAssetParams) -> Result<()> {
         ListAsset::list_asset(ctx, params)
     }
 

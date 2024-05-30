@@ -2,14 +2,13 @@ use anchor_lang::prelude::*;
 use mpl_core::instructions::TransferV1CpiBuilder;
 
 use crate::{
-    helpers::Core,
     constants::{SEED_LISTING_DATA, SEED_PREFIX},
+    helpers::Core,
     AssetManager, ListingData, PaymentOption,
 };
 
-
 #[derive(AnchorSerialize, AnchorDeserialize)]
-pub struct ListTokenParams {
+pub struct ListAssetParams {
     ///  listing amount/price in lamports
     pub amount: u64,
 
@@ -31,7 +30,7 @@ pub struct ListTokenParams {
 /// 1. params: ListTokenParams
 ///
 #[derive(Accounts)]
-#[instruction(params: ListTokenParams)]
+#[instruction(params: ListAssetParams)]
 pub struct ListAsset<'info> {
     #[account(mut)]
     pub payer: Signer<'info>,
@@ -66,7 +65,7 @@ impl ListAsset<'_> {
     /// list MPL core asset on the marketplace
     ///
     #[access_control(ctx.accounts.validate())]
-    pub fn list_asset(ctx: Context<ListAsset>, params: ListTokenParams) -> Result<()> {
+    pub fn list_asset(ctx: Context<ListAsset>, params: ListAssetParams) -> Result<()> {
         let listing_data = &mut ctx.accounts.listing_data;
 
         **listing_data = ListingData::new(
