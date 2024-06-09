@@ -14,7 +14,7 @@ pub struct DepositTokenParams {
 
 /// Deposit Tokens into escrow wallet managed by the list program
 ///
-/// Expects the following accounts:
+///  ### Accounts:
 /// 1. `[writeable, signer]` authority
 /// 2. `[writeable]` wallet
 /// 3. `[writeable, optional]` mint
@@ -24,8 +24,8 @@ pub struct DepositTokenParams {
 /// 7. `[]` associated token program
 /// 8. `[]` system program
 ///
-/// Expects the following arguments
-/// 1. params: DepositTokenParams
+/// ### Parameters
+/// 1. params: [DepositTokenParams]
 ///
 #[derive(Accounts)]
 pub struct DepositToken<'info> {

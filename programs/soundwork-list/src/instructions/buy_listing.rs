@@ -23,7 +23,8 @@ pub struct BuyAssetParams {
 
 /// Buy a listed MPL core asset on soundwork
 ///
-/// Expects the following accounts:
+///  ### Accounts:
+///
 /// 1. `[writeable, signer]` payer
 /// 2. `[writeable]` buyer
 /// 3. `[writeable]` seller
@@ -43,8 +44,9 @@ pub struct BuyAssetParams {
 /// 17. `[]` associated token program
 /// 18. `[]` system program
 ///
-/// Expects the following arguments
-/// 1. params: BuyAssetParams
+/// ### Parameters
+///
+/// 1. params: [BuyAssetParams]
 ///
 #[derive(Accounts)]
 pub struct BuyAsset<'info> {

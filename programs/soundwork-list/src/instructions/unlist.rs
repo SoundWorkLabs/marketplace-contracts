@@ -5,16 +5,14 @@ use crate::{constants::SEED_PREFIX, helpers::Core, AssetManager, ListingData, SE
 
 /// LIST an MPL core asset on soundwork
 ///
-/// Expects the following accounts:
+/// ### Accounts
+///
 /// 1. `[writeable, signer]` payer
 /// 2. `[writeable]` asset
 /// 3. `[writeable]` listing data account
 /// 4. `[]` asset manager
 /// 5. `[]` core program
 /// 6. `[]` system program
-///
-/// Expects the following arguments
-/// 1. amount: u64
 ///
 #[derive(Accounts)]
 pub struct UnListAsset<'info> {

@@ -26,7 +26,8 @@ pub struct EditBidParams {
 
 /// Edit Bid
 ///
-/// Expects the following accounts:
+/// ### Accounts:
+///
 /// 1. `[writeable, signer]` bidder
 /// 2. `[writeable]` asset
 /// 3. `[writeable]` bid data account
@@ -40,8 +41,8 @@ pub struct EditBidParams {
 /// 11. `[]` associated token program
 /// 12. `[]` system program
 ///
-/// Expects the following arguments
-/// 1. params: EditBidParams
+/// ### Parameter
+/// 1. params: [EditBidParams]
 ///
 #[derive(Accounts)]
 #[instruction(params: EditBidParams)]

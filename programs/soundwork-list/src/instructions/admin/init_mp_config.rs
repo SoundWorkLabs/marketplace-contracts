@@ -16,11 +16,15 @@ pub struct InitMarketPlaceConfigParams {
 
 /// Initialize protocol state accounts
 ///
-/// Expects the following accounts:
+/// ### Accounts:
+///
 /// 1. `[writeable, signer]` payer
 /// 2. `[writeable, signer]` assetManager
 /// 3. `[]` `system program`
-
+///
+/// ### Parameters
+/// 1. params: [InitMarketPlaceConfigParams]
+///
 #[derive(Accounts)]
 #[instruction(params: InitMarketPlaceConfigParams)]
 pub struct InitMarketplaceConfig<'info> {

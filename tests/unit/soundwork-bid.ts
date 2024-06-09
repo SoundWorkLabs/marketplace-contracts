@@ -46,11 +46,11 @@ describe("BID PROGRAM", () => {
 
 	// --------------------------------------------------------------------------BID IXs
 
-	// 	// wants to be paid using tokens
-	// 	it("Makes a bid on a listed asset!", async () => {
-	// 		let expiryTs = new BN(new Date().getTime());
+	// // wants to be paid using tokens
+	// it("Makes a bid on a listed asset!", async () => {
+	// 	let expiryTs = new BN(new Date().getTime());
 
-	// 		/* 	const initWalletIX = await listProgram.methods
+	// 	/* 	const initWalletIX = await listProgram.methods
 	// 			.initUserEscrowWallet()
 	// 			.accounts({
 	// 				authority: bidder.publicKey,
@@ -59,51 +59,51 @@ describe("BID PROGRAM", () => {
 	// 			})
 	// 			.instruction();
 	//  */
-	// 		const bidIX = await program.methods
-	// 			.makeBid({
-	// 				amount: new BN(1 * LAMPORTS_PER_SOL),
-	// 				expiryTs,
-	// 			})
-	// 			.accounts({
-	// 				bidder: bidder.publicKey,
-	// 				asset,
-	// 				bidData: findBidDataAddress(asset),
-	// 				bidderEscrowWallet: findWalletAddress(bidder.publicKey),
-	// 				listingData: findListingDataAddress(asset),
-	// 				paymentMint: PAYMENT_MINT,
-	// 				bidderTokenAccount: getAssociatedTokenAddressSync(
-	// 					PAYMENT_MINT,
-	// 					bidder.publicKey
-	// 				),
-	// 				// in sdk check that this is initialized and if not, call initialize wallet
-	// 				// initializeBidderWalletAndBid()
-	// 				walletTokenAccount: getAssociatedTokenAddressSync(
-	// 					PAYMENT_MINT,
-	// 					findWalletAddress(bidder.publicKey),
-	// 					true
-	// 				),
-	// 				soundworkList: SOUNDWORK_LIST_ID,
-	// 				associatedTokenProgram: ASSOCIATED_PROGRAM_ID,
-	// 				systemProgram: SystemProgram.programId,
-	// 			})
-	// 			.instruction();
+	// 	const bidIX = await program.methods
+	// 		.makeBid({
+	// 			amount: new BN(1 * LAMPORTS_PER_SOL),
+	// 			expiryTs,
+	// 		})
+	// 		.accounts({
+	// 			bidder: bidder.publicKey,
+	// 			asset,
+	// 			bidData: findBidDataAddress(asset),
+	// 			bidderEscrowWallet: findWalletAddress(bidder.publicKey),
+	// 			listingData: findListingDataAddress(asset),
+	// 			paymentMint: PAYMENT_MINT,
+	// 			bidderTokenAccount: getAssociatedTokenAddressSync(
+	// 				PAYMENT_MINT,
+	// 				bidder.publicKey
+	// 			),
+	// 			// in sdk check that this is initialized and if not, call initialize wallet
+	// 			// initializeBidderWalletAndBid()
+	// 			walletTokenAccount: getAssociatedTokenAddressSync(
+	// 				PAYMENT_MINT,
+	// 				findWalletAddress(bidder.publicKey),
+	// 				true
+	// 			),
+	// 			soundworkList: SOUNDWORK_LIST_ID,
+	// 			associatedTokenProgram: ASSOCIATED_TOKEN_PROGRAM_ID,
+	// 			systemProgram: SystemProgram.programId,
+	// 		})
+	// 		.instruction();
 
-	// const tx = new Transaction() /* .add(initWalletIX) */
-	// 	.add(bidIX);
+	// 	const tx = new Transaction() /* .add(initWalletIX) */
+	// 		.add(bidIX);
 
-	// let txHash = await sendAndConfirmTransaction(
-	// 	program.provider.connection,
-	// 	tx,
-	// 	[bidder],
-	// 	{
-	// 		skipPreflight: true,
-	// 	}
-	// );
+	// 	let txHash = await sendAndConfirmTransaction(
+	// 		program.provider.connection,
+	// 		tx,
+	// 		[bidder],
+	// 		{
+	// 			skipPreflight: true,
+	// 		}
+	// 	);
 
-	// 		console.log(
-	// 			`tx: https://explorer.solana.com/tx/${txHash}?cluster=devnet\n`
-	// 		);
-	// 	});
+	// 	console.log(
+	// 		`tx: https://explorer.solana.com/tx/${txHash}?cluster=devnet\n`
+	// 	);
+	// });
 
 	// it("Edits a bid for a listed asset!", async () => {
 	// 	let ix = await program.methods
@@ -194,25 +194,25 @@ describe("BID PROGRAM", () => {
 	// 		.acceptBid()
 	// 		.accounts({
 	// 			seller: seller.publicKey,
-	// bidder: bidder.publicKey,
-	// asset,
+	// 			bidder: bidder.publicKey,
+	// 			asset,
 	// 			bidData: findBidDataAddress(asset),
 	// 			bidderEscrowWallet: findWalletAddress(bidder.publicKey),
 	// 			listingData: findListingDataAddress(asset),
 	// 			paymentMint: PAYMENT_MINT,
-	// bidderTokenAccount: getAssociatedTokenAddressSync(
-	// 	PAYMENT_MINT,
-	// 	bidder.publicKey
-	// ),
+	// 			bidderTokenAccount: getAssociatedTokenAddressSync(
+	// 				PAYMENT_MINT,
+	// 				bidder.publicKey
+	// 			),
 	// 			sellerTokenAccount: getAssociatedTokenAddressSync(
 	// 				PAYMENT_MINT,
 	// 				seller.publicKey
 	// 			),
-	// walletTokenAccount: getAssociatedTokenAddressSync(
-	// 	PAYMENT_MINT,
-	// 	findWalletAddress(bidder.publicKey),
-	// 	true
-	// ),
+	// 			walletTokenAccount: getAssociatedTokenAddressSync(
+	// 				PAYMENT_MINT,
+	// 				findWalletAddress(bidder.publicKey),
+	// 				true
+	// 			),
 	// 			treasuryTokenAccount: getAssociatedTokenAddressSync(
 	// 				PAYMENT_MINT,
 	// 				signer.publicKey
@@ -228,9 +228,9 @@ describe("BID PROGRAM", () => {
 	// 		})
 	// 		.rpc({ skipPreflight: true });
 
-	// console.log(
-	// 	`tx: https://explorer.solana.com/tx/${txHash}?cluster=devnet\n`
-	// );
+	// 	console.log(
+	// 		`tx: https://explorer.solana.com/tx/${txHash}?cluster=devnet\n`
+	// 	);
 	// });
 
 	// it("Seller rejects bid on listed asset!", async () => {

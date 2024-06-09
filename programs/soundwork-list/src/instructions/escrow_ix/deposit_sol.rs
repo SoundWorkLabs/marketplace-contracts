@@ -13,13 +13,14 @@ pub struct DepositSolParams {
 
 /// Deposit Sol into escrow wallet managed by the list program
 ///
-/// Expects the following accounts:
+/// ### Accounts:
+///
 /// 1. `[writeable, signer]` authority
 /// 2. `[writeable]` wallet
 /// 3. `[]` system program
 ///
-/// Expects the following arguments
-/// 1. params: DepositSolParams
+/// ### Parameters
+/// 1. params: [DepositSolParams]
 ///
 #[derive(Accounts)]
 pub struct DepositSol<'info> {

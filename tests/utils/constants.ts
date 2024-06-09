@@ -55,5 +55,5 @@ export const PAYMENT_MINT = new PublicKey(
 
 // ------------------------------------------------------- testing
 export let asset = new PublicKey(
-	"782PBkY3mksE8Ra24ywnFuHhxd8Mke887fy27zTN7zKx"
+	"Bg9oa2YALip2p7jBXPYTT2gCFoZgYF7J5gjPZFs1Ckei"
 );

@@ -10,14 +10,16 @@ pub struct WithdrawSolParams {
 
 ///  Withdraw SOL from escrow wallet managed by the program.
 ///
-/// Expects the following accounts:
+///  ### Accounts:
+///
 /// 1. `[writeable, signer]` payer
 /// 2. `[writeable]` authority
 /// 3. `[writeable]` wallet
 /// 4. `[]` system program
 ///
-/// Expects the following arguments
-/// 1. params: WithdrawSolParams
+/// ### Parameters
+///
+/// 1. params: [WithdrawSolParams]
 ///
 #[derive(Accounts)]
 pub struct WithdrawSol<'info> {
