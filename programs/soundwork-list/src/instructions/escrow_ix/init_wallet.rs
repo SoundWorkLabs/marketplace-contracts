@@ -7,12 +7,12 @@ use crate::{
 
 /// Initialize user escrow wallet
 ///
-/// Expects the following accounts:
+/// ### Accounts:
+///
 /// 1. `[writeable, signer]` authority
 /// 2. `[writeable]` wallet
 /// 3. `[]` system program
 ///
-
 #[derive(Accounts)]
 pub struct InitWallet<'info> {
     #[account(mut)]

@@ -18,7 +18,7 @@ use crate::{error::BidErrorCode, BidData};
 
 /// Revoke placed Bid
 ///
-/// Expects the following accounts:
+/// ### Accounts:
 /// 1. `[writeable, signer]` bidder
 /// 2. `[writeable]` asset
 /// 3. `[writeable]` bid data account
@@ -32,7 +32,6 @@ use crate::{error::BidErrorCode, BidData};
 /// 11. `[]` associated token program
 /// 12. `[]` system program
 ///
-
 #[derive(Accounts)]
 pub struct RevokeBid<'info> {
     #[account(

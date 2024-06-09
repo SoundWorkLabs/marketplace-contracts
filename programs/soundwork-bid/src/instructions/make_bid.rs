@@ -32,7 +32,8 @@ pub struct MakeBidParams {
 
 /// Make a bid for an MPL core asset listed soundwork
 ///
-/// Expects the following accounts:
+///  ### Accounts:
+///
 /// 1. `[writeable, signer]` bidder
 /// 2. `[writeable]` asset
 /// 3. `[writeable]` bid data account
@@ -46,8 +47,9 @@ pub struct MakeBidParams {
 /// 11. `[]` associated token program
 /// 12. `[]` system program
 ///
-/// Expects the following arguments
-/// 1. params: MakeBidParams
+/// ### Parameters
+///
+/// 1. params: [MakeBidParams]
 ///
 #[derive(Accounts)]
 #[instruction(params: MakeBidParams)]

@@ -18,7 +18,7 @@ pub struct WithdrawTokenParams {
 
 /// Withdraw Tokens from escrow wallet managed by the list program
 ///
-/// Expects the following accounts:
+/// ### Accounts:
 /// 1. `[writeable, signer]` payer
 /// 2. `[writeable]` authority
 /// 3. `[writeable]` wallet
@@ -29,8 +29,9 @@ pub struct WithdrawTokenParams {
 /// 8. `[]` associated token program
 /// 9. `[]` system program
 ///
-/// Expects the following arguments
-/// 1. params: WithdrawTokenParams
+/// ### Parameters
+///
+/// 1. params: [WithdrawTokenParams]
 ///
 #[derive(Accounts)]
 pub struct WithdrawToken<'info> {

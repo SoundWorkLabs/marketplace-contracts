@@ -10,7 +10,8 @@ pub struct UpdateListingParams {
 
 /// update a listed MPL core asset
 ///
-/// Expects the following accounts:
+/// ### Accounts:
+///
 /// 1. `[writeable, signer]` payer
 /// 2. `[writeable]` asset
 /// 3. `[writeable]` listing data account
@@ -18,8 +19,9 @@ pub struct UpdateListingParams {
 /// 5. `[]` core program
 /// 6. `[]` system program
 ///
-/// Expects the following arguments
-/// 1. params: ListTokenParams
+/// ### Params
+///
+/// 1. params: [UpdateListingParams]
 ///
 #[derive(Accounts)]
 #[instruction(params: UpdateListingParams)]

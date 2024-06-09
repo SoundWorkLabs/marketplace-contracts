@@ -4,7 +4,8 @@ use crate::{AssetManager, constants::{SEED_ASSET_MANAGER, SEED_PREFIX, ADMIN_ADD
 
 /// Initialize AssetManager escrow account
 ///
-/// Expects the following accounts:
+/// ### Accounts:
+/// 
 /// 1. `[writeable, signer]` payer
 /// 2. `[writeable, signer]` assetManager
 /// 3. `[]` core program

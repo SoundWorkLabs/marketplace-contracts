@@ -18,7 +18,8 @@ pub struct ListAssetParams {
 
 /// LIST an MPL core asset on soundwork
 ///
-/// Expects the following accounts:
+/// ### Accounts:
+///
 /// 1. `[writeable, signer]` payer
 /// 2. `[writeable]` asset
 /// 3. `[writeable]` listing data account
@@ -26,8 +27,9 @@ pub struct ListAssetParams {
 /// 5. `[]` core program
 /// 6. `[]` system program
 ///
-/// Expects the following arguments
-/// 1. params: ListTokenParams
+/// ### Parameters
+///
+/// 1. params: [ListTokenParams]
 ///
 #[derive(Accounts)]
 #[instruction(params: ListAssetParams)]

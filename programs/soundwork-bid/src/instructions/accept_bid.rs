@@ -16,7 +16,8 @@ use crate::{error::BidErrorCode, BidData};
 
 /// Accept a placed Bid
 
-/// Expects the following accounts:
+/// ### Accounts:
+///
 /// 1. `[writeable, signer]` seller
 /// 2. `[writeable]` bidder
 /// 3. `[writeable]` asset
