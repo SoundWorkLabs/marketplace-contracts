@@ -19,12 +19,14 @@ declare_id!("EA4ptgF3TYjDBGYJApAoZoyCbCYw6P5mGU5noCe1Z97");
 security_txt! {
     name: "Soundwork List Program",
     project_url: "https://soundwork.io",
-    contacts: "email:info@soundwork.io, twitter:@soundworkio",
+    contacts: "email:info@soundwork.io, twitter:@SoundworkSounds",
     policy: "https://github.com/SoundWorkLabs/marketplace-contracts/blob/master/SECURITY.md",
     preferred_languages: "en",
     source_code: "https://github.com/SoundWorkLabs/marketplace-contracts"
 }
 
+/// SOUNDWORK LIST
+///
 #[program]
 pub mod soundwork_list {
 

@@ -3,13 +3,45 @@
   <h1><strong>Soundwork Marketplace Contracts</strong></h1>
   <p>
     <strong>The Soundwork NFT Marketplace contracts.</strong>
-  </p>
+   </p>
   <p>
     <a target="_blank" href="https://discord.gg/Jyw67UfQ"><img alt="Discord Chat" src="https://img.shields.io/badge/chat-discord-blueviolet" /></a>
     <a target="_blank" href="https://github.com/SoundWorkLabs//blob/master/LICENSE"><img alt="License" src="https://img.shields.io/github/license/SoundWorkLabs/marketplace-contracts" /></a>
-    <!-- <a target="_blank" href="https://www.npmjs.com/package/@soundwork-oss/soundwork-sdk"><img alt="SDK" src="https://img.shields.io/npm/v/%40soundwork-oss%2Fsoundwork-sdk"/></a> -->
+    <a target="_blank" href="https://www.npmjs.com/package/@soundwork-oss/soundwork-sdk"><img alt="SDK" src="https://img.shields.io/npm/v/%40soundwork-oss%2Fsoundwork-sdk"/></a>
   </p>
 </div>
+
+<hr />
+
+This repo contains the latest programs for [soundwork.io](https://soundwork.io/) protocol. Using the new [Metaplex core asset](https://developers.metaplex.com/core) users are able to perform all traditional operations of an NFT marketplace like list and bid operations trustlessly executed by our programs.
+
+## Programs
+
+This project contains the following programs:
+
+**soundwork-list**
+
+<!-- -   Mainnet-beta: -->
+
+-   Devnet: `EA4ptgF3TYjDBGYJApAoZoyCbCYw6P5mGU5noCe1Z97`
+
+**soundwork-bid**
+
+<!-- -   Mainnet-beta: -->
+
+-   Devnet: `4mFDYND4AVREYEJXCPhjq1LnbjELHHebJqG3NZechA7X`
+
+## Audits
+
+These programs are not audited, so fork, deploy and use them at your own risk.
+
+## Developers
+
+You can interact with the list and bid programs via our SDK.
+
+Typescript SDK: [`@soundwork-oss/soundwork-sdk`](https://www.npmjs.com/package/@soundwork-oss/soundwork-sdk)
+
+<!-- Rust Crate: [`@soundwork-oss/soundwork-sdk`](https://www.npmjs.com/package/@soundwork-oss/soundwork-sdk) -->
 
 ## Developing
 

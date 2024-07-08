@@ -16,7 +16,7 @@ declare_id!("4iraDthfMHkgrvWsLz4mfCyHJY4JKc31TTxGMZKrc6r8");
 security_txt! {
     name: "Soundwork Create Program",
     project_url: "https://soundwork.io",
-    contacts: "email:info@soundwork.io, twitter:@soundworkio",
+    contacts: "email:info@soundwork.io, twitter:@SoundworkSounds",
     policy: "https://github.com/SoundWorkLabs/marketplace-contracts/blob/master/SECURITY.md",
     preferred_languages: "en",
     source_code: "https://github.com/SoundWorkLabs/marketplace-contracts"
