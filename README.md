@@ -11,7 +11,7 @@
   </p>
 </div>
 
-<hr />
+---
 
 This repo contains the latest programs for [soundwork.io](https://soundwork.io/) protocol. Using the new [Metaplex core asset](https://developers.metaplex.com/core) users are able to perform all traditional operations of an NFT marketplace like list and bid operations trustlessly executed by our programs.
 
