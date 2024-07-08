@@ -18,12 +18,14 @@ declare_id!("4mFDYND4AVREYEJXCPhjq1LnbjELHHebJqG3NZechA7X");
 security_txt! {
     name: "Soundwork Bid Program",
     project_url: "https://soundwork.io",
-    contacts: "email:info@soundwork.io, twitter:@soundworkio",
+    contacts: "email:info@soundwork.io, twitter:@SoundworkSounds",
     policy: "https://github.com/SoundWorkLabs/marketplace-contracts/blob/master/SECURITY.md",
     preferred_languages: "en",
     source_code: "https://github.com/SoundWorkLabs/marketplace-contracts"
 }
 
+/// SOUNDWORK BID
+///
 #[program]
 pub mod soundwork_bid {
     use super::*;
