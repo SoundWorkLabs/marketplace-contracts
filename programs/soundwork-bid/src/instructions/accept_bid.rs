@@ -21,22 +21,23 @@ use crate::{error::BidErrorCode, BidData};
 /// 1. `[writeable, signer]` seller
 /// 2. `[writeable]` bidder
 /// 3. `[writeable]` asset
-/// 4. `[writeable]` bid data account
-/// 5. `[writeable]` bidder escrow wallet
-/// 6. `[writeable]` listing data account
-/// 7. `[writeable, optional]` bidder token account
-/// 8. `[writeable, optional]` seller token account
-/// 9. `[writeable, optional]` wallet token account
-/// 10. `[writeable, optional]` treasury token account
-/// 11. `[writeable]` treasury
-/// 12. `[writeable,]` asset manager
-/// 13. `[writeable,]` marketplace config account
-/// 14. `[writeable]` payment mint  
-/// 15. `[]` soundwork list program
-/// 16. `[]` core program   
-/// 17. `[]` token program   
-/// 18. `[]` associated token program  
-/// 19. `[]` system program  
+/// 4. `[writeable]` collection
+/// 5. `[writeable]` bid data account
+/// 6. `[writeable]` bidder escrow wallet
+/// 7. `[writeable]` listing data account
+/// 8. `[writeable, optional]` bidder token account
+/// 9. `[writeable, optional]` seller token account
+/// 10. `[writeable, optional]` wallet token account
+/// 11. `[writeable, optional]` treasury token account
+/// 12. `[writeable]` treasury
+/// 13. `[writeable]` asset manager
+/// 14. `[writeable]` marketplace config account
+/// 15. `[writeable]` payment mint  
+/// 16. `[]` soundwork list program
+/// 17. `[]` core program   
+/// 18. `[]` token program   
+/// 19. `[]` associated token program  
+/// 20. `[]` system program  
 ///
 #[derive(Accounts)]
 pub struct AcceptBid<'info> {
@@ -55,6 +56,10 @@ pub struct AcceptBid<'info> {
     /// CHECK: checked by us
     #[account(mut)]
     pub asset: AccountInfo<'info>,
+
+    /// CHECK: checked by us
+    #[account(mut)]
+    pub collection: Option<AccountInfo<'info>>,
 
     #[account(
         mut,
@@ -156,6 +161,7 @@ impl AcceptBid<'_> {
                     seller: ctx.accounts.seller.to_account_info(),
                     wallet_as_buyer: ctx.accounts.bidder_escrow_wallet.to_account_info().into(),
                     asset: ctx.accounts.asset.to_account_info(),
+                    collection: ctx.accounts.collection.clone(),
                     payment_mint: None,         // safe to unwrap
                     wallet_token_account: None, // safe to unwrap
                     buyer_token_account: None,
@@ -186,6 +192,7 @@ impl AcceptBid<'_> {
                     seller: ctx.accounts.seller.to_account_info(),
                     wallet_as_buyer: ctx.accounts.bidder_escrow_wallet.to_account_info().into(),
                     asset: ctx.accounts.asset.to_account_info(),
+                    collection: ctx.accounts.collection.clone(),
                     payment_mint: Some(
                         ctx.accounts.payment_mint.clone().unwrap().to_account_info(),
                     ), // safe to unwrap

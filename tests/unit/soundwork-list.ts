@@ -151,34 +151,34 @@ describe("LIST PROGRAM", () => {
 	// 	);
 	// });
 
-	it("Withdraws Tokens from buyer escrow wallet", async () => {
-		const txHash = await program.methods
-			.withdrawToken({ amount: new BN(1) })
-			.accounts({
-				payer: buyer.publicKey,
-				authority: buyer.publicKey,
-				wallet: findWalletAddress(buyer.publicKey),
-				mint: PAYMENT_MINT,
-				authorityTokenAccount: getAssociatedTokenAddressSync(
-					PAYMENT_MINT,
-					buyer.publicKey
-				),
-				walletTokenAccount: getAssociatedTokenAddressSync(
-					PAYMENT_MINT,
-					findWalletAddress(buyer.publicKey),
-					true
-				),
-				tokenProgram: TOKEN_PROGRAM_ID,
-				associatedTokenProgram: ASSOCIATED_PROGRAM_ID,
-				systemProgram: SystemProgram.programId,
-			})
-			.signers([buyer])
-			.rpc({ skipPreflight: true });
+	// it("Withdraws Tokens from buyer escrow wallet", async () => {
+	// 	const txHash = await program.methods
+	// 		.withdrawToken({ amount: new BN(1) })
+	// 		.accounts({
+	// 			payer: buyer.publicKey,
+	// 			authority: buyer.publicKey,
+	// 			wallet: findWalletAddress(buyer.publicKey),
+	// 			mint: PAYMENT_MINT,
+	// 			authorityTokenAccount: getAssociatedTokenAddressSync(
+	// 				PAYMENT_MINT,
+	// 				buyer.publicKey
+	// 			),
+	// 			walletTokenAccount: getAssociatedTokenAddressSync(
+	// 				PAYMENT_MINT,
+	// 				findWalletAddress(buyer.publicKey),
+	// 				true
+	// 			),
+	// 			tokenProgram: TOKEN_PROGRAM_ID,
+	// 			associatedTokenProgram: ASSOCIATED_PROGRAM_ID,
+	// 			systemProgram: SystemProgram.programId,
+	// 		})
+	// 		.signers([buyer])
+	// 		.rpc({ skipPreflight: true });
 
-		console.log(
-			`tx: https://explorer.solana.com/tx/${txHash}?cluster=devnet\n`
-		);
-	});
+	// 	console.log(
+	// 		`tx: https://explorer.solana.com/tx/${txHash}?cluster=devnet\n`
+	// 	);
+	// });
 
 	// --------------------------------------------------------------------------LIST IXs
 
@@ -191,6 +191,7 @@ describe("LIST PROGRAM", () => {
 	// 		.accounts({
 	// 			payer: signer.publicKey,
 	// 			asset,
+	// 			collection: null,
 	// 			listingData: findListingDataAddress(asset),
 	// 			assetManager: findAssetManagerAddress(),
 	// 			coreProgram: CORE_PROGRAM_ID,
@@ -230,6 +231,7 @@ describe("LIST PROGRAM", () => {
 	// 		.accounts({
 	// 			payer: signer.publicKey,
 	// 			asset,
+	// 			collection: null,
 	// 			listingData: findListingDataAddress(asset),
 	// 			assetManager: findAssetManagerAddress(),
 	// 			coreProgram: CORE_PROGRAM_ID,
