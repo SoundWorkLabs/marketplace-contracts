@@ -21,7 +21,7 @@ pub struct BuyAssetParams {
     pub bid_amount: u64,
 }
 
-/// Buy a listed MPL core asset on soundwork
+/// Buy a listed MPL core asset on Soundwork
 ///
 ///  ### Accounts:
 ///
@@ -30,19 +30,20 @@ pub struct BuyAssetParams {
 /// 3. `[writeable]` seller
 /// 4. `[writeable, optional]` wallet as buyer
 /// 5. `[writeable]` asset
-/// 6. `[writeable, optional]` payment mint
-/// 7. `[writeable, optional]` wallet token account
-/// 8. `[writeable, optional]` buyer token account
-/// 9. `[writeable, optional]` seller token account
-/// 10. `[writeable, optional]` treasury token account
-/// 11. `[writeable]` treasury
-/// 12. `[writeable]` listing data account
-/// 13. `[]` asset manager
-/// 14. `[]` marketplace config
-/// 15. `[]` core program
-/// 16. `[]` token program
-/// 17. `[]` associated token program
-/// 18. `[]` system program
+/// 6. `[writeable]` collection
+/// 7. `[writeable, optional]` payment mint
+/// 8. `[writeable, optional]` wallet token account
+/// 9. `[writeable, optional]` buyer token account
+/// 10. `[writeable, optional]` seller token account
+/// 11. `[writeable, optional]` treasury token account
+/// 12. `[writeable]` treasury
+/// 13. `[writeable]` listing data account
+/// 14. `[]` asset manager
+/// 15. `[]` marketplace config
+/// 16. `[]` core program
+/// 17. `[]` token program
+/// 18. `[]` associated token program
+/// 19. `[]` system program
 ///
 /// ### Parameters
 ///
@@ -65,6 +66,9 @@ pub struct BuyAsset<'info> {
     /// CHECK: checked by us
     #[account(mut)]
     pub asset: UncheckedAccount<'info>,
+
+    #[account(mut)]
+    pub collection: Option<AccountInfo<'info>>,
 
     #[account(mut)]
     pub payment_mint: Option<Box<Account<'info, Mint>>>,
@@ -354,6 +358,7 @@ impl BuyAsset<'_> {
 
         TransferV1CpiBuilder::new(&ctx.accounts.core_program)
             .asset(&ctx.accounts.asset)
+            .collection(ctx.accounts.collection.as_ref())
             .payer(&ctx.accounts.payer)
             .authority(Some(&asset_manager.to_account_info()))
             .new_owner(&ctx.accounts.payer.to_account_info())

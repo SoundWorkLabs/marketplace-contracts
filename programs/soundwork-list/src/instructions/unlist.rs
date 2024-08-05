@@ -3,16 +3,17 @@ use mpl_core::instructions::TransferV1CpiBuilder;
 
 use crate::{constants::SEED_PREFIX, helpers::Core, AssetManager, ListingData, SEED_ASSET_MANAGER};
 
-/// LIST an MPL core asset on soundwork
+/// Un-list an MPL core asset on soundwork
 ///
 /// ### Accounts
 ///
-/// 1. `[writeable, signer]` payer
-/// 2. `[writeable]` asset
-/// 3. `[writeable]` listing data account
-/// 4. `[]` asset manager
-/// 5. `[]` core program
-/// 6. `[]` system program
+/// 1. `[writable, signer]` payer
+/// 2. `[writable]` asset
+/// 3. `[writable]` collection
+/// 4. `[writable]` listing data account
+/// 5. `[]` asset manager
+/// 6. `[]` core program
+/// 7. `[]` system program
 ///
 #[derive(Accounts)]
 pub struct UnListAsset<'info> {
@@ -22,6 +23,10 @@ pub struct UnListAsset<'info> {
     /// CHECK: checked by us
     #[account(mut)]
     pub asset: AccountInfo<'info>,
+
+    /// CHECK: checked by us
+    #[account(mut)]
+    pub collection: Option<AccountInfo<'info>>,
 
     #[account(mut, close = payer)]
     pub listing_data: Account<'info, ListingData>,
@@ -63,6 +68,7 @@ impl UnListAsset<'_> {
         // transfer asset back to owner
         TransferV1CpiBuilder::new(&ctx.accounts.core_program)
             .asset(&ctx.accounts.asset)
+            .collection(ctx.accounts.collection.as_ref())
             .payer(&ctx.accounts.payer)
             .authority(Some(&asset_manager.to_account_info()))
             .new_owner(&ctx.accounts.payer.to_account_info())

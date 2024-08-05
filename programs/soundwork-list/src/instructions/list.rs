@@ -53,6 +53,10 @@ pub struct ListAsset<'info> {
 
     pub asset_manager: Account<'info, AssetManager>,
 
+    /// CHECK: checked by us
+    #[account(mut)]
+    pub collection: Option<AccountInfo<'info>>,
+
     pub core_program: Program<'info, Core>,
 
     pub system_program: Program<'info, System>,
@@ -84,6 +88,7 @@ impl ListAsset<'_> {
             .asset(&ctx.accounts.asset)
             .payer(&ctx.accounts.payer)
             .authority(Some(&ctx.accounts.payer))
+            .collection(ctx.accounts.collection.as_ref())
             .new_owner(&ctx.accounts.asset_manager.to_account_info())
             .system_program(Some(&ctx.accounts.system_program))
             .invoke()?;
