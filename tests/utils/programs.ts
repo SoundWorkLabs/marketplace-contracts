@@ -2,9 +2,17 @@
 
 import { AnchorProvider, Program, Provider } from "@coral-xyz/anchor";
 
-import { SoundworkBid } from "../../target/types/soundwork_bid";
-import { SoundworkList } from "../../target/types/soundwork_list";
-import { SoundworkCreate } from "../../target/types/soundwork_create";
+import type { SoundworkBid } from "../../target/types/soundwork_bid";
+import type { SoundworkCreate } from "../../target/types/soundwork_create";
+import type { SoundworkList } from "../../target/types/soundwork_list";
+
+// @ts-ignore
+import * as soundworkBidIDL from "../../target/idl/soundwork_bid.json";
+// @ts-ignore
+import * as soundworkCreateIDL from "../../target/idl/soundwork_create.json";
+// @ts-ignore
+import * as soundworkListIDL from "../../target/idl/soundwork_list.json";
+
 import {
 	defaultProvider,
 	SOUNDWORK_BID_ID,
@@ -18,13 +26,11 @@ export class BidProgram {
 
 	getProgram(): Program<SoundworkBid> {
 		const idl = loadProgramIdl("bid");
-		const programId = SOUNDWORK_BID_ID;
 
-		return new Program(
-			idl,
-			programId,
+		return new Program<SoundworkBid>(
+			soundworkListIDL as unknown as soundworkBidIDL,
 			this.provider
-		) as Program<SoundworkBid>;
+		);
 	}
 }
 
@@ -32,14 +38,10 @@ export class CreateProgram {
 	constructor(readonly provider: Provider = defaultProvider) {}
 
 	getProgram(): Program<SoundworkCreate> {
-		const idl = loadProgramIdl("create");
-		const programId = SOUNDWORK_CREATE_ID;
-
-		return new Program(
-			idl,
-			programId,
+		return new Program<SoundworkCreate>(
+			soundworkCreateIDL as unknown as SoundworkCreate,
 			this.provider
-		) as Program<SoundworkCreate>;
+		);
 	}
 }
 
@@ -47,13 +49,9 @@ export class ListProgram {
 	constructor(readonly provider: Provider = defaultProvider) {}
 
 	getProgram(): Program<SoundworkList> {
-		const idl = loadProgramIdl("list");
-		const programId = SOUNDWORK_LIST_ID;
-
-		return new Program(
-			idl,
-			programId,
+		return new Program<SoundworkList>(
+			soundworkListIDL as unknown as SoundworkList,
 			this.provider
-		) as Program<SoundworkList>;
+		);
 	}
 }

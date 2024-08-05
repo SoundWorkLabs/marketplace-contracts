@@ -38,21 +38,20 @@ describe("LIST PROGRAM", () => {
 
 	// --------------------------------------------------------------------------ADMIN IXs
 
-	// it("Initializes asset manager escrow account!", async () => {
-	// 	const txHash = await program.methods
-	// 		.initEscrowAccount()
-	// 		.accounts({
-	// 			payer: signer.publicKey,
-	// 			systemProgram: SystemProgram.programId,
-	// 			assetManager: findAssetManagerAddress(),
-	// 			coreProgram: CORE_PROGRAM_ID,
-	// 		})
-	// 		.rpc({skipPreflight: true});
-
-	// 	console.log(
-	// 		`tx: https://explorer.solana.com/tx/${txHash}?cluster=devnet\n`
-	// 	);
-	// });
+	it("Initializes asset manager escrow account!", async () => {
+		// const txHash = await program.methods
+		// 	.initEscrowAccount()
+		// 	.accountsStrict({
+		// 		payer: signer.publicKey,
+		// 		systemProgram: SystemProgram.programId,
+		// 		assetManager: findAssetManagerAddress(),
+		// 		coreProgram: CORE_PROGRAM_ID,
+		// 	})
+		// 	.rpc({skipPreflight: true});
+		// console.log(
+		// 	`tx: https://explorer.solana.com/tx/${txHash}?cluster=devnet\n`
+		// );
+	});
 
 	// it("Initializes Marketplace config account!", async () => {
 	// 	const txHash = await program.methods
@@ -60,7 +59,7 @@ describe("LIST PROGRAM", () => {
 	// 			takerFeeBps: 1,
 	// 			treasuryAddress: signer.publicKey, // todo: update me
 	// 		})
-	// 		.accounts({
+	// 		.accountsStrict({
 	// 			payer: signer.publicKey,
 	// 			marketplaceConfig: findMarketplaceConfigAddress(),
 	// 			systemProgram: SystemProgram.programId,
@@ -77,7 +76,7 @@ describe("LIST PROGRAM", () => {
 	// it("Initializes buyer wallet escrow account!", async () => {
 	// 	const txHash = await program.methods
 	// 		.initUserEscrowWallet()
-	// 		.accounts({
+	// 		.accountsStrict({
 	// 			authority: buyer.publicKey,
 	// 			wallet: findWalletAddress(buyer.publicKey),
 	// 			systemProgram: SystemProgram.programId,
@@ -93,7 +92,7 @@ describe("LIST PROGRAM", () => {
 	// it("Deposits SOL to buyer escrow wallet!", async () => {
 	// 	const txHash = await program.methods
 	// 		.depositSol({ amount: new BN(1 * LAMPORTS_PER_SOL) })
-	// 		.accounts({
+	// 		.accountsStrict({
 	// 			authority: buyer.publicKey,
 	// 			wallet: findWalletAddress(buyer.publicKey),
 	// 			systemProgram: SystemProgram.programId,
@@ -109,7 +108,7 @@ describe("LIST PROGRAM", () => {
 	// it("Withdraws SOL from buyer escrow wallet!", async () => {
 	// 	const txHash = await program.methods
 	// 		.withdrawSol({ amount: new BN(0.01 * LAMPORTS_PER_SOL) })
-	// 		.accounts({
+	// 		.accountsStrict({
 	// 			payer: buyer.publicKey,
 	// 			authority: buyer.publicKey,
 	// 			wallet: findWalletAddress(buyer.publicKey),
@@ -126,7 +125,7 @@ describe("LIST PROGRAM", () => {
 	// it("Deposits Tokens to buyer escrow wallet!", async () => {
 	// 	const txHash = await program.methods
 	// 		.depositToken({ amount: new BN(1_000_000) }) // with 6 decimals, this is 1 USDC dev coin
-	// 		.accounts({
+	// 		.accountsStrict({
 	// 			authority: buyer.publicKey,
 	// 			wallet: findWalletAddress(buyer.publicKey),
 	// 			mint: PAYMENT_MINT,
@@ -154,7 +153,7 @@ describe("LIST PROGRAM", () => {
 	// it("Withdraws Tokens from buyer escrow wallet", async () => {
 	// 	const txHash = await program.methods
 	// 		.withdrawToken({ amount: new BN(1) })
-	// 		.accounts({
+	// 		.accountsStrict({
 	// 			payer: buyer.publicKey,
 	// 			authority: buyer.publicKey,
 	// 			wallet: findWalletAddress(buyer.publicKey),
@@ -188,7 +187,7 @@ describe("LIST PROGRAM", () => {
 	// 			amount: new BN(1_0000_000),
 	// 			paymentOption: { native: {} },
 	// 		})
-	// 		.accounts({
+	// 		.accountsStrict({
 	// 			payer: signer.publicKey,
 	// 			asset,
 	// 			collection: null,
@@ -210,7 +209,7 @@ describe("LIST PROGRAM", () => {
 	// 			amount: new BN(1_000_000), // 1 USDC dev
 	// 			paymentOption: { token: { mint: PAYMENT_MINT } },
 	// 		})
-	// 		.accounts({
+	// 		.accountsStrict({
 	// 			payer: signer.publicKey,
 	// 			asset,
 	// 			listingData: findListingDataAddress(asset),
@@ -228,7 +227,7 @@ describe("LIST PROGRAM", () => {
 	// it("UnLists an MPL core asset!", async () => {
 	// 	const txHash = await program.methods
 	// 		.unlistAsset()
-	// 		.accounts({
+	// 		.accountsStrict({
 	// 			payer: signer.publicKey,
 	// 			asset,
 	// 			collection: null,
@@ -247,7 +246,7 @@ describe("LIST PROGRAM", () => {
 	// it("Buys a listed NFT using Native SOL!", async () => {
 	// 	const txHash = await program.methods
 	// 		.buyAsset(null) // ! fails as expected
-	// 		.accounts({
+	// 		.accountsStrict({
 	// 			payer: buyer.publicKey,
 	// 			buyer: buyer.publicKey,
 	// 			seller: seller.publicKey,
@@ -279,7 +278,7 @@ describe("LIST PROGRAM", () => {
 	// 	const txHash = await program.methods
 	// 		.buyAsset(null) // ! fails as expected
 	// 		// .buyAsset({ bidAmount: new BN(1_000_000) }) // ! works, but this is for seller when accepting bids
-	// 		.accounts({
+	// 		.accountsStrict({
 	// 			payer: buyer.publicKey,
 	// 			buyer: buyer.publicKey,
 	// 			seller: seller.publicKey,
@@ -326,7 +325,7 @@ describe("LIST PROGRAM", () => {
 	// it("Buys a listed NFT using Tokens!", async () => {
 	// 	const txHash = await program.methods
 	// 		.buyAsset(null) // ! fails as expected
-	// 		.accounts({
+	// 		.accountsStrict({
 	// 			payer: buyer.publicKey,
 	// 			buyer: buyer.publicKey,
 	// 			seller: seller.publicKey,
