@@ -52,7 +52,7 @@ describe("BID PROGRAM", () => {
 
 	// 	/* 	const initWalletIX = await listProgram.methods
 	// 			.initUserEscrowWallet()
-	// 			.accounts({
+	// 			.accountsStrict({
 	// 				authority: bidder.publicKey,
 	// 				wallet: findWalletAddress(bidder.publicKey),
 	// 				systemProgram: SystemProgram.programId,
@@ -64,7 +64,7 @@ describe("BID PROGRAM", () => {
 	// 			amount: new BN(1 * LAMPORTS_PER_SOL),
 	// 			expiryTs,
 	// 		})
-	// 		.accounts({
+	// 		.accountsStrict({
 	// 			bidder: bidder.publicKey,
 	// 			asset,
 	// 			bidData: findBidDataAddress(asset),
@@ -108,7 +108,7 @@ describe("BID PROGRAM", () => {
 	// it("Edits a bid for a listed asset!", async () => {
 	// 	let ix = await program.methods
 	// 		.editBid({ amount: new BN(1000), expiryTs: null })
-	// 		.accounts({
+	// 		.accountsStrict({
 	// 			bidder: bidder.publicKey,
 	// 			asset,
 	// 			bidData: findBidDataAddress(asset),
@@ -150,7 +150,7 @@ describe("BID PROGRAM", () => {
 	// it("Revoked bid on a listed asset!", async () => {
 	// 	let ix = await program.methods
 	// 		.revokeBid()
-	// 		.accounts({
+	// 		.accountsStrict({
 	// 			bidder: bidder.publicKey,
 	// 			asset,
 	// 			bidData: findBidDataAddress(asset),
@@ -192,7 +192,7 @@ describe("BID PROGRAM", () => {
 	// it("Accepts a bid for a listed asset!", async () => {
 	// 	let txHash = await program.methods
 	// 		.acceptBid()
-	// 		.accounts({
+	// 		.accountsStrict({
 	// 			seller: seller.publicKey,
 	// 			bidder: bidder.publicKey,
 	// 			asset,
@@ -236,7 +236,7 @@ describe("BID PROGRAM", () => {
 	// it("Seller rejects bid on listed asset!", async () => {
 	// 	let ix = await program.methods
 	// 		.rejectBid()
-	// 		.accounts({
+	// 		.accountsStrict({
 	// 			seller: seller.publicKey,
 	// 			bidder: bidder.publicKey,
 	// 			asset,

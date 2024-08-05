@@ -21,7 +21,7 @@ describe("CREATE PROGRAM", () => {
 
 		const txHash = await program.methods
 			.create(metadata.name, metadata.uri)
-			.accounts({
+			.accountsStrict({
 				payer: signer.publicKey,
 				systemProgram: SystemProgram.programId,
 				asset: asset.publicKey,
