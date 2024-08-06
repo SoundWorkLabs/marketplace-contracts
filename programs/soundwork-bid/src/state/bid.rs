@@ -38,15 +38,12 @@ impl BidData {
     }
 
     /// update bid data account
-    pub fn update(
-        &mut self,
-        updated_amount: Option<u64>,
-        updated_expiry_ts: Option<i64>,
-    ) -> (u64, i64) {
-        let amount = updated_amount.unwrap_or(self.amount);
-
-        let expiry_ts = updated_expiry_ts.unwrap_or(self.expiry_ts);
-
-        (amount, expiry_ts)
+   pub fn update(&mut self, updated_amount: Option<u64>, updated_expiry_ts: Option<i64>) {
+        if let Some(amount) = updated_amount {
+            self.amount = amount;
+        }
+        if let Some(expiry_ts) = updated_expiry_ts {
+            self.expiry_ts = expiry_ts;
+        }
     }
 }
