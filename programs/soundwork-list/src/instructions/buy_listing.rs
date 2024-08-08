@@ -97,7 +97,7 @@ pub struct BuyAsset<'info> {
         associated_token::mint = payment_mint,
         associated_token::authority = treasury,
     )]
-    pub treasury_token_account: Option<Account<'info, TokenAccount>>,
+    pub treasury_token_account: Option<Box<Account<'info, TokenAccount>>>,
 
     #[account(
         mut,
@@ -130,6 +130,7 @@ impl BuyAsset<'_> {
     /// buy a MPL core asset listed on the marketplace
     ///
     #[access_control(ctx.accounts.validate())]
+    #[inline(never)]
     pub fn buy_asset(ctx: Context<BuyAsset>, params: Option<BuyAssetParams>) -> Result<()> {
         let listing_data = &mut ctx.accounts.listing_data;
         let asset_manager = &ctx.accounts.asset_manager;
