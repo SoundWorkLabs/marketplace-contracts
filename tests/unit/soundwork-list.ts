@@ -212,6 +212,7 @@ describe("LIST PROGRAM", () => {
 	// 		.accountsStrict({
 	// 			payer: signer.publicKey,
 	// 			asset,
+	// 			collection: null,
 	// 			listingData: findListingDataAddress(asset),
 	// 			assetManager: findAssetManagerAddress(),
 	// 			coreProgram: CORE_PROGRAM_ID,
@@ -283,9 +284,8 @@ describe("LIST PROGRAM", () => {
 	// 			buyer: buyer.publicKey,
 	// 			seller: seller.publicKey,
 	// 			walletAsBuyer: findWalletAddress(buyer.publicKey),
-	// 			// walletAsBuyer: null,
-
 	// 			asset,
+	// 			collection: null,
 	// 			paymentMint: PAYMENT_MINT,
 	// 			walletTokenAccount: getAssociatedTokenAddressSync(
 	// 				PAYMENT_MINT,
@@ -310,8 +310,7 @@ describe("LIST PROGRAM", () => {
 	// 			marketplaceConfig: findMarketplaceConfigAddress(),
 	// 			coreProgram: CORE_PROGRAM_ID,
 	// 			tokenProgram: TOKEN_PROGRAM_ID,
-	// 	associatedTokenProgram: ASSOCIATED_PROGRAM_ID,
-
+	// 			associatedTokenProgram: ASSOCIATED_PROGRAM_ID,
 	// 			systemProgram: SystemProgram.programId,
 	// 		})
 	// 		.signers([buyer])
