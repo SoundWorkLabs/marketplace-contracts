@@ -46,7 +46,7 @@ describe("BID PROGRAM", () => {
 
 	// --------------------------------------------------------------------------BID IXs
 
-	// // wants to be paid using tokens
+	// wants to be paid using tokens
 	// it("Makes a bid on a listed asset!", async () => {
 	// 	let expiryTs = new BN(new Date().getTime());
 
@@ -83,6 +83,7 @@ describe("BID PROGRAM", () => {
 	// 				true
 	// 			),
 	// 			soundworkList: SOUNDWORK_LIST_ID,
+	// 			tokenProgram: TOKEN_PROGRAM_ID,
 	// 			associatedTokenProgram: ASSOCIATED_TOKEN_PROGRAM_ID,
 	// 			systemProgram: SystemProgram.programId,
 	// 		})

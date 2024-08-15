@@ -83,7 +83,12 @@ pub struct MakeBid<'info> {
     #[account(mut)]
     pub bidder_token_account: Option<Box<Account<'info, TokenAccount>>>,
 
-    #[account(mut)]
+    #[account(
+        init_if_needed,
+        payer = bidder,
+        associated_token::mint = payment_mint,
+        associated_token::authority = bidder_escrow_wallet,
+    )]
     pub wallet_token_account: Option<Box<Account<'info, TokenAccount>>>,
 
     pub soundwork_list: Program<'info, SoundworkList>,

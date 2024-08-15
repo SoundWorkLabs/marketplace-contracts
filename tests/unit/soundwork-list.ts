@@ -203,27 +203,27 @@ describe("LIST PROGRAM", () => {
 	// 	);
 	// });
 
-	// it("Lists an MPL core asset and uses tokens as payment option!", async () => {
-	// 	const txHash = await program.methods
-	// 		.listAsset({
-	// 			amount: new BN(1_000_000), // 1 USDC dev
-	// 			paymentOption: { token: { mint: PAYMENT_MINT } },
-	// 		})
-	// 		.accountsStrict({
-	// 			payer: signer.publicKey,
-	// 			asset,
-	// 			collection: null,
-	// 			listingData: findListingDataAddress(asset),
-	// 			assetManager: findAssetManagerAddress(),
-	// 			coreProgram: CORE_PROGRAM_ID,
-	// 			systemProgram: SystemProgram.programId,
-	// 		})
-	// 		.rpc({ skipPreflight: true });
+	it("Lists an MPL core asset and uses tokens as payment option!", async () => {
+		const txHash = await program.methods
+			.listAsset({
+				amount: new BN(1_000_000), // 1 USDC dev
+				paymentOption: { token: { mint: PAYMENT_MINT } },
+			})
+			.accountsStrict({
+				payer: signer.publicKey,
+				asset,
+				collection: null,
+				listingData: findListingDataAddress(asset),
+				assetManager: findAssetManagerAddress(),
+				coreProgram: CORE_PROGRAM_ID,
+				systemProgram: SystemProgram.programId,
+			})
+			.rpc({ skipPreflight: true });
 
-	// 	console.log(
-	// 		`tx: https://explorer.solana.com/tx/${txHash}?cluster=devnet\n`
-	// 	);
-	// });
+		console.log(
+			`tx: https://explorer.solana.com/tx/${txHash}?cluster=devnet\n`
+		);
+	});
 
 	// it("UnLists an MPL core asset!", async () => {
 	// 	const txHash = await program.methods
@@ -253,6 +253,7 @@ describe("LIST PROGRAM", () => {
 	// 			seller: seller.publicKey,
 	// 			walletAsBuyer: null,
 	// 			asset,
+	// 			collection: null,
 	// 			paymentMint: null,
 	// 			walletTokenAccount: null,
 	// 			buyerTokenAccount: null,
@@ -264,7 +265,7 @@ describe("LIST PROGRAM", () => {
 	// 			marketplaceConfig: findMarketplaceConfigAddress(),
 	// 			coreProgram: CORE_PROGRAM_ID,
 	// 			tokenProgram: TOKEN_PROGRAM_ID,
-	//	associatedTokenProgram: ASSOCIATED_PROGRAM_ID,
+	// 			associatedTokenProgram: ASSOCIATED_PROGRAM_ID,
 	// 			systemProgram: SystemProgram.programId,
 	// 		})
 	// 		.signers([buyer])
