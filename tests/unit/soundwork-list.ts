@@ -253,6 +253,7 @@ describe("LIST PROGRAM", () => {
 	// 			seller: seller.publicKey,
 	// 			walletAsBuyer: null,
 	// 			asset,
+	// 			collection: null,
 	// 			paymentMint: null,
 	// 			walletTokenAccount: null,
 	// 			buyerTokenAccount: null,
@@ -264,7 +265,7 @@ describe("LIST PROGRAM", () => {
 	// 			marketplaceConfig: findMarketplaceConfigAddress(),
 	// 			coreProgram: CORE_PROGRAM_ID,
 	// 			tokenProgram: TOKEN_PROGRAM_ID,
-	//	associatedTokenProgram: ASSOCIATED_PROGRAM_ID,
+	// 			associatedTokenProgram: ASSOCIATED_PROGRAM_ID,
 	// 			systemProgram: SystemProgram.programId,
 	// 		})
 	// 		.signers([buyer])

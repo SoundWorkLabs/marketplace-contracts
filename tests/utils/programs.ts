@@ -28,7 +28,7 @@ export class BidProgram {
 		const idl = loadProgramIdl("bid");
 
 		return new Program<SoundworkBid>(
-			soundworkListIDL as unknown as soundworkBidIDL,
+			soundworkBidIDL as unknown as soundworkBidIDL,
 			this.provider
 		);
 	}
