@@ -1,6 +1,6 @@
 [toolchain]
 anchor_version = "0.30.1"  
-# solana_version = "1.18.20"  
+# solana_version = "1.18.11" system version. do not uncomment  
 # solana_version = "1.17.28"  
 
 [features]
